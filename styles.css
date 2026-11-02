@@ -58,3 +58,5 @@ h1{font-size:1.8rem;line-height:1.08;margin:.25rem 0 .45rem}.hero p{margin:0;col
 .assignment-box{background:#f7f8f3;border:1px solid #cfd9ca;border-radius:18px;padding:16px;margin:22px 0 8px}
 .assignment-box h3{margin-top:2px;border:0;padding:0}
 .assignment-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+
+.full-source{margin-top:18px}.full-source h3{margin-top:24px;padding-top:10px;border-top:1px solid var(--border);color:var(--green)}.full-source p{line-height:1.68}.full-source ul,.full-source ol{padding-left:23px}.full-source li{margin:6px 0;line-height:1.5}

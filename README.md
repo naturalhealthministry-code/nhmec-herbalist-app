@@ -1,23 +1,16 @@
-# NHMEC Herbalist Learning App — Version 5
+# NHMEC Herbalist Learning App — Version 6
 
-Version 5 adds the full Biblical Faith & Health Connection class.
+Version 6 adds the full **Biblical Herbalism Foundations (Module 2.1)** course.
 
-## Fully populated courses
-1. NHMEC 100 — Welcome & Orientation
-2. Foundations of Natural Health
-3. Biblical Faith & Health Connection
+## Added
+- 8 real Biblical Herbalism lesson pages
+- Original lesson PDFs inside the app
+- Module 2.1 Biblical Herbalism Guidebook
+- Compressed Module 2 Holistic Christian Herbalist Guidebook as supplemental reference
+- Per-lesson completion tracking
+- Updated service-worker cache (`v6`) and network-first core update behavior
 
-## Biblical Faith & Health Connection
-- Four current lessons
-- Required 63-page Module 7 guidebook
-- Required reading pages displayed for each lesson
-- Four printable assignment sheets
-- Lesson-completion tracking on the student device
-- Final class reflection
-- Closing prayer
-- Final assessment requirement shown without inventing missing questions or a passing score
+## Update the existing GitHub repository
+Upload every file from the Version 6 Update Files ZIP to the existing `nhmec-herbalist-app` repository and commit the changes. Existing files with matching names will be replaced; the Biblical Herbalism PDF files will be added.
 
-## Updating the existing app
-Upload every file from the Version 5 Update Files ZIP to the existing `nhmec-herbalist-app` repository and commit the changes.
-
-The app continues to use network-first updates for the core HTML, JavaScript, CSS, and manifest so future versions should refresh more reliably.
+The official final assessment questions were not included in the supplied Version 6 course materials, so no assessment questions were invented.

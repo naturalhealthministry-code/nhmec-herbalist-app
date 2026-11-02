@@ -1,7 +1,7 @@
 {
   "name": "NHMEC Herbalist Learning App",
   "short_name": "NHMEC Herbs",
-  "description": "NHMEC herbalist education and study app \u2014 Version 4",
+  "description": "NHMEC Herbalist education and study app \u2014 Version 6",
   "start_url": "./#home",
   "display": "standalone",
   "background_color": "#f5f2e9",
