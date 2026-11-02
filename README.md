@@ -1,35 +1,23 @@
-# NHMEC Herbalist Learning App — Version 4
+# NHMEC Herbalist Learning App — Version 5
 
-Version 4 adds the full **Foundations of Natural Health** short course.
+Version 5 adds the full Biblical Faith & Health Connection class.
 
-## New in Version 4
-- All four Foundations of Natural Health lessons
-- Holistic P.E.N. Way™ connection
-- CLEAN Foundations
-- ABC Plus D approach
-- 30-Day Whole-Person Wellness Plan
-- Five printable assignment sheets
-- Module 6 Natural Health Guidebook PDF
-- Per-lesson completion tracking
-- Course progress tracking
-- Improved PWA update behavior (network-first for HTML/JS/CSS so future versions should refresh without uninstalling)
+## Fully populated courses
+1. NHMEC 100 — Welcome & Orientation
+2. Foundations of Natural Health
+3. Biblical Faith & Health Connection
 
-## Important
-The course requires an 80% final assessment score, but the actual final assessment questions were not included in the source materials for this update. No questions were invented.
+## Biblical Faith & Health Connection
+- Four current lessons
+- Required 63-page Module 7 guidebook
+- Required reading pages displayed for each lesson
+- Four printable assignment sheets
+- Lesson-completion tracking on the student device
+- Final class reflection
+- Closing prayer
+- Final assessment requirement shown without inventing missing questions or a passing score
 
-## Update existing GitHub repository
-Upload/replace:
-- index.html
-- styles.css
-- app.js
-- manifest.json
-- service-worker.js
-- README.md
+## Updating the existing app
+Upload every file from the Version 5 Update Files ZIP to the existing `nhmec-herbalist-app` repository and commit the changes.
 
-Add these new course resources:
-- module-6-guide-updated.pdf
-- nhf-lesson-1-assignment.png
-- nhf-lesson-2-wellness-journal.png
-- nhf-lesson-3-abc-plus-d.png
-- nhf-lesson-4-personal-plan.png
-- nhf-lesson-4-30-day-plan.png
+The app continues to use network-first updates for the core HTML, JavaScript, CSS, and manifest so future versions should refresh more reliably.
