@@ -48,3 +48,13 @@ h1{font-size:1.8rem;line-height:1.08;margin:.25rem 0 .45rem}.hero p{margin:0;col
 @media(min-width:620px){.card-grid.two{grid-template-columns:1fr 1fr}.tile-grid{grid-template-columns:repeat(3,1fr)}.hero{padding:34px 28px 24px}.content{padding:22px}.course-grid{grid-template-columns:1fr 1fr}}
 
 .resource-file{display:flex;gap:14px;align-items:flex-start}.file-icon{flex:0 0 46px;width:46px;height:46px;border-radius:14px;background:var(--sage);display:grid;place-items:center;font-size:1.35rem}.file-link{display:inline-block;text-decoration:none;margin-top:8px}.module-card .lesson-number{font-size:.9rem}.assignment-card{margin-top:14px}.assignment-card h4,.real-lesson h4{color:var(--green);margin:16px 0 6px;font-size:1rem}.assignment-card p,.real-lesson p{line-height:1.65}.assignment-card ul,.assignment-card ol,.real-lesson ul,.real-lesson ol{padding-left:24px;line-height:1.6}.course-progress-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.course-progress-head h3,.course-progress-head p{margin:0}.course-progress-head p{margin-top:4px}.assessment-promo{margin-top:18px;border-color:#c9d8c7;background:linear-gradient(145deg,#fff,#eef4ec)}.complete-box{border-top:1px solid var(--border);margin-top:22px;padding-top:16px}.lesson-nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.real-lesson{padding:20px}.real-lesson p:first-child{margin-top:0}
+
+/* Version 4 — Foundations of Natural Health */
+.course-facts{margin-top:14px}
+.lesson-section{padding:4px 0 8px}
+.lesson-section h3{margin-top:20px;border-bottom:1px solid var(--border);padding-bottom:7px}
+.scripture-card{background:#f3f0df;border:1px solid #ded5b4;border-radius:16px;padding:16px;margin:0 0 18px;text-align:center;color:#44503f}
+.scripture-card blockquote{font-family:Georgia,serif;font-size:1.03rem;line-height:1.55;margin:0 0 8px;font-style:italic}
+.assignment-box{background:#f7f8f3;border:1px solid #cfd9ca;border-radius:18px;padding:16px;margin:22px 0 8px}
+.assignment-box h3{margin-top:2px;border:0;padding:0}
+.assignment-links{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}

@@ -1,21 +1,35 @@
-# NHMEC Herbalist Learning App — Version 3
+# NHMEC Herbalist Learning App — Version 4
 
-Version 3 fully populates NHMEC 100 Welcome & Orientation from the supplied NHMEC source PDFs.
+Version 4 adds the full **Foundations of Natural Health** short course.
 
-## New in Version 3
-- 10 real orientation modules
-- 46 real lesson pages
-- Module purposes and learning objectives
-- Module reflections and assignments
-- Required reading PDFs bundled into the app
-- Student Handbook
-- Welcome & Orientation Guide 2026
-- Full NHMEC 100 Orientation PDF
-- Local lesson completion tracking on the student's device
-- Final Orientation Agreement content
-- 25-question open-book assessment with 70% passing score
-- Version 3 service-worker cache
+## New in Version 4
+- All four Foundations of Natural Health lessons
+- Holistic P.E.N. Way™ connection
+- CLEAN Foundations
+- ABC Plus D approach
+- 30-Day Whole-Person Wellness Plan
+- Five printable assignment sheets
+- Module 6 Natural Health Guidebook PDF
+- Per-lesson completion tracking
+- Course progress tracking
+- Improved PWA update behavior (network-first for HTML/JS/CSS so future versions should refresh without uninstalling)
 
-## GitHub update
-Upload/replace: index.html, styles.css, app.js, service-worker.js, manifest.json.
-Also upload the three PDF files included in this package.
+## Important
+The course requires an 80% final assessment score, but the actual final assessment questions were not included in the source materials for this update. No questions were invented.
+
+## Update existing GitHub repository
+Upload/replace:
+- index.html
+- styles.css
+- app.js
+- manifest.json
+- service-worker.js
+- README.md
+
+Add these new course resources:
+- module-6-guide-updated.pdf
+- nhf-lesson-1-assignment.png
+- nhf-lesson-2-wellness-journal.png
+- nhf-lesson-3-abc-plus-d.png
+- nhf-lesson-4-personal-plan.png
+- nhf-lesson-4-30-day-plan.png
