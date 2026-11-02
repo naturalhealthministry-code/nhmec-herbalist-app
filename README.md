@@ -1,18 +1,22 @@
-# NHMEC Herbalist Learning App — Version 8
+# NHMEC Herbalist Learning App — Version 9
 
-Version 8 connects the official NHMEC Google Forms to the required agreement and final assessments already built into the app.
+Version 9 adds the complete **The Herbalist’s Path** short class to Level 1.
 
-## Official submission workflow
-- Welcome & Orientation: official Final Orientation Agreement Google Form
-- Welcome & Orientation: official Final Open-Book Orientation Assessment Google Form
-- Natural Health Foundations 101: official final assessment / worksheet-upload Google Form
-- Biblical Faith & Health Foundations: official final assessment / worksheet-upload Google Form
-- Biblical Herbalism Foundations: official 50-question final assessment Google Form
+## New course content
+- Module 3 • Level 1: The Herbalist’s Path
+- 4 complete lessons
+- Required 136-page guidebook included in a compressed app copy
+- 4 printable lesson assignment sheets
+- Per-lesson completion tracking
+- Official NHMEC Google Form final assessment link
 
-The in-app versions remain available for study, practice, and local progress. Google Forms are clearly labeled as the official submission method so NHMEC receives the student's work.
+## Course sequence
+1. Understanding Herbalism and the Herbalist’s Role
+2. Beginner Herbalist Foundations
+3. The Intermediate Herbalist
+4. The Advanced Herbalist and Lifelong Learning
 
-## Privacy / storage
-Local practice responses and scores remain on the student's device. Official form submissions are handled by Google Forms according to the form's settings.
+The original source guidebook remains unchanged. The included app copy is compressed for GitHub/mobile delivery.
 
 ## Updating GitHub Pages
-Upload the Version 8 update files to the repository root and commit them. The service worker uses a new v8 cache and network-first core-file update behavior.
+Upload the Version 9 update files to the repository root and commit them. Do not delete earlier course PDFs or images. The service worker uses cache `nhmec-herbal-v9` and network-first behavior for core app files.
