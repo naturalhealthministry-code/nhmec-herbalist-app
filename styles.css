@@ -80,3 +80,13 @@ h1{font-size:1.8rem;line-height:1.08;margin:.25rem 0 .45rem}.hero p{margin:0;col
 
 /* Version 12 — A&P 110 and progressive multi-level classes */
 .visual-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:12px 0 20px}.visual-card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);min-height:150px}.visual-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top;background:#f3f4ef}.visual-card span{padding:11px 12px;font-size:.86rem;font-weight:800;line-height:1.35}.visual-card small{font-weight:600;color:var(--muted)}.is-placeholder{border-style:dashed;box-shadow:none;background:linear-gradient(145deg,#fffdf7,#f6f1e7)}.placeholder-card{border-style:dashed;background:linear-gradient(145deg,#fffdf7,#f6f1e7)}.reserved-visual{justify-content:center;align-items:center;text-align:center;background:#faf6ea}.reserved-box{width:70px;height:70px;border:2px dashed #c4aa72;border-radius:18px;display:grid;place-items:center;font-size:2rem;font-weight:900;color:#8b6b31;margin-top:18px}.course-facts p{margin:7px 0}.module-card.is-placeholder .badge{background:#f3ead7;color:#76531f}@media(min-width:620px){.visual-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Version 14 resource-media additions */
+.resource-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.external-resource,.video-resource{display:flex;align-items:center;gap:12px;width:100%;text-align:left;text-decoration:none;color:inherit;cursor:pointer}
+.external-resource h3,.video-resource h3{margin:0 0 4px}.external-resource p,.video-resource p{margin:0;font-size:.86rem;word-break:break-word}
+.resource-icon{flex:0 0 42px;width:42px;height:42px;border-radius:13px;background:var(--sage);display:grid;place-items:center;font-size:1.15rem}
+.video-resource .arrow{margin-left:auto}
+.course-video{display:block;width:min(100%,420px);height:auto;max-height:320px;object-fit:contain;background:#111;border-radius:16px;margin:10px auto 0}@media(max-width:619px){.course-video{width:min(100%,340px);max-height:280px}}
+.media-feature{overflow:hidden}.media-note{font-size:.82rem;color:var(--muted);margin:10px 0 0}
+@media(min-width:620px){.resource-grid{grid-template-columns:1fr 1fr}}
