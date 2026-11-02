@@ -1,19 +1,21 @@
-# NHMEC Herbalist Learning App
+# NHMEC Herbalist Learning App — Version 3
 
-This is a static Progressive Web App (PWA).
+Version 3 fully populates NHMEC 100 Welcome & Orientation from the supplied NHMEC source PDFs.
 
-## Display it for students
-Publish the contents of this folder to any HTTPS static host. GitHub Pages is a simple free option.
+## New in Version 3
+- 10 real orientation modules
+- 46 real lesson pages
+- Module purposes and learning objectives
+- Module reflections and assignments
+- Required reading PDFs bundled into the app
+- Student Handbook
+- Welcome & Orientation Guide 2026
+- Full NHMEC 100 Orientation PDF
+- Local lesson completion tracking on the student's device
+- Final Orientation Agreement content
+- 25-question open-book assessment with 70% passing score
+- Version 3 service-worker cache
 
-## GitHub Pages
-1. Create a GitHub account and a public repository.
-2. Upload all files from this package to the repository root.
-3. Open repository Settings > Pages.
-4. Publish from your main branch/root.
-5. Open the provided github.io address.
-
-## Phone installation
-Open the published link on the phone, then use Add to Home Screen / Install App.
-
-## Preview
-`NHMEC_Herbalist_App_Preview.html` is a standalone preview version. PWA installation and offline caching require HTTPS hosting.
+## GitHub update
+Upload/replace: index.html, styles.css, app.js, service-worker.js, manifest.json.
+Also upload the three PDF files included in this package.
