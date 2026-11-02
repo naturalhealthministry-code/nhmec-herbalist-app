@@ -1,5 +1,5 @@
-const CACHE='nhmec-herbal-v9';
-const CORE=['./','./index.html','./styles.css?v=9','./app.js?v=9','./manifest.json','./icon-192.png','./icon-512.png'];
+const CACHE='nhmec-herbal-v10';
+const CORE=['./','./index.html','./styles.css?v=10','./app.js?v=10','./manifest.json','./icon-192.png','./icon-512.png'];
 const COURSE_ASSETS=[
 './nhmec-student-handbook.pdf','./nhmec-orientation.pdf','./nhmec-welcome-orientation-guide-2026.pdf',
 './module-6-guide-updated.pdf',
@@ -8,7 +8,8 @@ const COURSE_ASSETS=[
 './module-7-guide-updated.pdf',
 './bfh-lesson-1-word-intake.png','./bfh-lesson-2-journey-wholeness.png','./bfh-lesson-3-tripartite-map.png','./bfh-lesson-4-healing-through-jesus.png',
 './module-2-1-biblical-herbalism-guidebook.pdf','./module-2-holistic-christian-herbalist-guidebook.pdf','./bh-lesson-1-welcome.pdf','./bh-lesson-2-christian-herbalist.pdf','./bh-lesson-3-discernment.pdf','./bh-lesson-4-good-samaritan.pdf','./bh-lesson-5-prayer-scripture.pdf','./bh-lesson-6-foods-herbs-oils-spices.pdf','./bh-lesson-7-herb-studies.pdf','./bh-lesson-8-women-healing-restoration.pdf',
-'./module-3-level-1-herbalists-path.pdf','./hp-lesson-1-assignment.png','./hp-lesson-2-beginner-journal.png','./hp-lesson-3-materia-medica.png','./hp-lesson-4-personal-pathway.png'
+'./module-3-level-1-herbalists-path.pdf','./hp-lesson-1-assignment.png','./hp-lesson-2-beginner-journal.png','./hp-lesson-3-materia-medica.png','./hp-lesson-4-personal-pathway.png',
+'./module-4-holistic-nutrition-guidebook.pdf','./hn-lesson-1-assignment.png','./hn-lesson-2-nutritional-balance.png','./hn-lesson-3-nutrient-map.png','./hn-lesson-4-food-safety.png','./hn-final-project.png'
 ];
 
 self.addEventListener('install',event=>{
