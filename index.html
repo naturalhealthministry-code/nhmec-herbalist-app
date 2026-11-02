@@ -18,21 +18,28 @@
   <p>Study herbs • Learn preparations • Practice formulation • Build confident herbal knowledge</p>
   <div class="hero-actions"><button class="btn btn-light" data-go="courses">Start learning</button><button class="btn btn-ghost" data-go="herbs">Search herbs</button></div>
 </header>
+
 <main class="content">
 <section id="home" class="section active">
   <div class="section-head"><div><h2>Welcome</h2><p>Your herbalist study hub.</p></div></div>
   <div class="tile-grid">
-    <button class="tile" data-go="courses"><span class="icon">🎓</span><strong>Courses</strong><small>Foundations through advanced study</small></button>
+    <button class="tile" data-go="courses"><span class="icon">🎓</span><strong>Complete Pathways</strong><small>Foundations through practitioner and specialist study</small></button>
     <button class="tile" data-go="herbs"><span class="icon">🌿</span><strong>Herb Library</strong><small>Search materia medica entries</small></button>
     <button class="tile" data-go="quiz"><span class="icon">📝</span><strong>Study Quiz</strong><small>Test herbal knowledge</small></button>
     <button class="tile" data-go="resources"><span class="icon">🧪</span><strong>Preparations</strong><small>Teas, tinctures, glycerites & more</small></button>
     <button class="tile" data-go="resources"><span class="icon">🫀</span><strong>Body Systems</strong><small>Organize study by system</small></button>
     <button class="tile" data-go="resources"><span class="icon">✝️</span><strong>Biblical Herbalism</strong><small>Faith-centered study resources</small></button>
   </div>
-  <div class="notice install-box"><b>Educational use:</b> This app teaches herbalism and natural wellness concepts. It is not a substitute for licensed medical diagnosis or treatment.</div>
+  <div class="notice install-box"><b>Version 2:</b> The full NHMEC course pathway is now built into the app. Every course opens to its own course page, and every lesson opens to an individual lesson page ready for full teaching content.</div>
 </section>
 
-<section id="courses" class="section"><div class="section-head"><div><h2>Herbalist Courses</h2><p>Organized as a growing learning pathway.</p></div></div><div id="courseGrid" class="card-grid two"></div></section>
+<section id="courses" class="section">
+  <div class="section-head"><div><h2>NHMEC Learning Pathways</h2><p>Open any course to view its outcomes and lessons.</p></div></div>
+  <div id="pathways"></div>
+</section>
+
+<section id="course-detail" class="section"><div id="courseDetail"></div></section>
+<section id="lesson-detail" class="section"><div id="lessonDetail"></div></section>
 
 <section id="herbs" class="section">
   <div class="section-head"><div><h2>Herb Library</h2><p>Tap an herb to open its study card.</p></div><small id="herbCount"></small></div>
@@ -42,16 +49,17 @@
 <section id="quiz" class="section"><div class="section-head"><div><h2>Study Quiz</h2><p id="quizStatus"></p></div></div><div class="progress"><span id="quizProgress"></span></div><div id="quizArea"></div></section>
 
 <section id="resources" class="section">
-  <div class="section-head"><div><h2>Study Resources</h2><p>Starter sections ready for your own lessons and handouts.</p></div></div>
+  <div class="section-head"><div><h2>Study Resources</h2><p>Core resource areas ready for continued expansion.</p></div></div>
   <div class="card-grid">
-    <div class="card"><div class="resource-link"><div class="badge">🫖</div><div><h3>Preparation Lab</h3><p>Infusions, decoctions, tinctures, glycerites, vinegars, syrups, oils, salves and formulation notes.</p></div></div></div>
-    <div class="card"><div class="resource-link"><div class="badge">🫀</div><div><h3>Body Systems</h3><p>Digestive, respiratory, nervous, urinary, lymphatic and other system-based study modules.</p></div></div></div>
-    <div class="card"><div class="resource-link"><div class="badge">📖</div><div><h3>Herbal Monograph Template</h3><p>Common name, Latin name, family, part used, actions, constituents, energetics, preparations, safety and study notes.</p></div></div></div>
-    <div class="card"><div class="resource-link"><div class="badge">✝️</div><div><h3>Biblical Herbalism</h3><p>A dedicated place for Scripture-based study, plant references, stewardship and faith-centered reflection.</p></div></div></div>
+    <div class="card"><div class="resource-link"><div class="rbadge">🫖</div><div><h3>Preparation Lab</h3><p>Infusions, decoctions, tinctures, glycerites, vinegars, syrups, oils, salves and formulation notes.</p></div></div></div>
+    <div class="card"><div class="resource-link"><div class="rbadge">🫀</div><div><h3>Body Systems</h3><p>Digestive, respiratory, nervous, urinary, lymphatic and other system-based study modules.</p></div></div></div>
+    <div class="card"><div class="resource-link"><div class="rbadge">📖</div><div><h3>Herbal Monograph Template</h3><p>Common name, Latin name, family, part used, actions, constituents, energetics, preparations, safety and study notes.</p></div></div></div>
+    <div class="card"><div class="resource-link"><div class="rbadge">✝️</div><div><h3>Biblical Herbalism</h3><p>Scripture-based study, plant references, stewardship, and faith-centered reflection.</p></div></div></div>
   </div>
-  <div class="notice install-box"><b>Install on a phone:</b> once this app is hosted on an HTTPS website, open it in Chrome or Safari and choose <b>Add to Home Screen</b>. It will then launch from its own icon.</div>
+  <div class="notice install-box"><b>Educational use:</b> This app teaches herbalism and natural wellness concepts. It is not a substitute for licensed medical diagnosis or treatment.</div>
 </section>
 </main>
+
 <nav class="bottom-nav" aria-label="App navigation">
 <button class="nav-btn active" data-section="home"><span>🏠</span>Home</button>
 <button class="nav-btn" data-section="courses"><span>🎓</span>Courses</button>
@@ -59,7 +67,7 @@
 <button class="nav-btn" data-section="quiz"><span>📝</span>Quiz</button>
 <button class="nav-btn" data-section="resources"><span>📚</span>Resources</button>
 </nav>
-<div class="footer-note">NHMEC Herbalist Learning App • Educational use</div>
+<div class="footer-note">NHMEC Herbalist Learning App • Version 2 • Educational use</div>
 </div>
 <script src="app.js"></script>
 </body></html>
