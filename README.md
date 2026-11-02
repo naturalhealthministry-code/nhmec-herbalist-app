@@ -1,17 +1,17 @@
-# NHMEC Herbalist Learning App — Version 10
+# NHMEC Herbalist Learning App — Version 11
 
-Version 10 adds the complete **Holistic Nutrition Foundations — Module 4** short class to Level 1.
+Version 11 adds the complete **Biblical Nutrition & Wellness Foundations — Module 5** class to Level 1.
 
-## Added in Version 10
+## Added in Version 11
 - 4 complete lesson pages using the current PENothecary class text
-- Required 38-page Module 4 Holistic Nutrition Guidebook (mobile-compressed app copy)
+- Required 30-page Module 5 Biblical Nutrition Guidebook (mobile-compressed app copy)
 - 4 printable lesson worksheets
-- Final project: **My Understanding of Holistic Nutrition**
+- Final project: **My Biblical Nutrition & Wellness Stewardship Plan**
 - Lesson completion tracking stored locally on the student's device
 - Official Google Form final assessment link supplied by NHMEC
 - Legacy Canvas references inside the older guidebook are identified as outdated platform references
 
 ## GitHub update
-Upload the Version 10 update files to the repository root and commit them. Do not delete earlier course PDFs or images. The service worker uses cache `nhmec-herbal-v10` and network-first behavior for core app files.
+Upload the Version 11 update files to the repository root and commit them. Do not delete earlier course PDFs or images. The service worker uses cache `nhmec-herbal-v11` with network-first behavior for core app files.
 
-The update package contains only files that are new or changed in Version 10. The full package is a backup copy and is not intended to be uploaded as one ZIP file.
+Use the **Update ZIP** for GitHub. Keep the **Full Backup ZIP** only as a backup.
