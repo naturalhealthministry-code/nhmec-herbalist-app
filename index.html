@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#345b3c">
+<meta name="description" content="NHMEC Herbalist Learning App">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="stylesheet" href="styles.css">
+<title>NHMEC Herbalist Learning App</title>
+</head>
+<body>
+<div class="app-shell">
+<header class="hero">
+  <div class="brand-row"><div class="brand-mark">🌿</div><div><div class="eyebrow">Natural Health Ministries Education Center</div><h1>Herbalist Learning App</h1></div></div>
+  <p>Study herbs • Learn preparations • Practice formulation • Build confident herbal knowledge</p>
+  <div class="hero-actions"><button class="btn btn-light" data-go="courses">Start learning</button><button class="btn btn-ghost" data-go="herbs">Search herbs</button></div>
+</header>
+<main class="content">
+<section id="home" class="section active">
+  <div class="section-head"><div><h2>Welcome</h2><p>Your herbalist study hub.</p></div></div>
+  <div class="tile-grid">
+    <button class="tile" data-go="courses"><span class="icon">🎓</span><strong>Courses</strong><small>Foundations through advanced study</small></button>
+    <button class="tile" data-go="herbs"><span class="icon">🌿</span><strong>Herb Library</strong><small>Search materia medica entries</small></button>
+    <button class="tile" data-go="quiz"><span class="icon">📝</span><strong>Study Quiz</strong><small>Test herbal knowledge</small></button>
+    <button class="tile" data-go="resources"><span class="icon">🧪</span><strong>Preparations</strong><small>Teas, tinctures, glycerites & more</small></button>
+    <button class="tile" data-go="resources"><span class="icon">🫀</span><strong>Body Systems</strong><small>Organize study by system</small></button>
+    <button class="tile" data-go="resources"><span class="icon">✝️</span><strong>Biblical Herbalism</strong><small>Faith-centered study resources</small></button>
+  </div>
+  <div class="notice install-box"><b>Educational use:</b> This app teaches herbalism and natural wellness concepts. It is not a substitute for licensed medical diagnosis or treatment.</div>
+</section>
+
+<section id="courses" class="section"><div class="section-head"><div><h2>Herbalist Courses</h2><p>Organized as a growing learning pathway.</p></div></div><div id="courseGrid" class="card-grid two"></div></section>
+
+<section id="herbs" class="section">
+  <div class="section-head"><div><h2>Herb Library</h2><p>Tap an herb to open its study card.</p></div><small id="herbCount"></small></div>
+  <input id="herbSearch" class="search" type="search" placeholder="Search nettle, calming, infusion..."><div id="herbGrid" class="card-grid"></div>
+</section>
+
+<section id="quiz" class="section"><div class="section-head"><div><h2>Study Quiz</h2><p id="quizStatus"></p></div></div><div class="progress"><span id="quizProgress"></span></div><div id="quizArea"></div></section>
+
+<section id="resources" class="section">
+  <div class="section-head"><div><h2>Study Resources</h2><p>Starter sections ready for your own lessons and handouts.</p></div></div>
+  <div class="card-grid">
+    <div class="card"><div class="resource-link"><div class="badge">🫖</div><div><h3>Preparation Lab</h3><p>Infusions, decoctions, tinctures, glycerites, vinegars, syrups, oils, salves and formulation notes.</p></div></div></div>
+    <div class="card"><div class="resource-link"><div class="badge">🫀</div><div><h3>Body Systems</h3><p>Digestive, respiratory, nervous, urinary, lymphatic and other system-based study modules.</p></div></div></div>
+    <div class="card"><div class="resource-link"><div class="badge">📖</div><div><h3>Herbal Monograph Template</h3><p>Common name, Latin name, family, part used, actions, constituents, energetics, preparations, safety and study notes.</p></div></div></div>
+    <div class="card"><div class="resource-link"><div class="badge">✝️</div><div><h3>Biblical Herbalism</h3><p>A dedicated place for Scripture-based study, plant references, stewardship and faith-centered reflection.</p></div></div></div>
+  </div>
+  <div class="notice install-box"><b>Install on a phone:</b> once this app is hosted on an HTTPS website, open it in Chrome or Safari and choose <b>Add to Home Screen</b>. It will then launch from its own icon.</div>
+</section>
+</main>
+<nav class="bottom-nav" aria-label="App navigation">
+<button class="nav-btn active" data-section="home"><span>🏠</span>Home</button>
+<button class="nav-btn" data-section="courses"><span>🎓</span>Courses</button>
+<button class="nav-btn" data-section="herbs"><span>🌿</span>Herbs</button>
+<button class="nav-btn" data-section="quiz"><span>📝</span>Quiz</button>
+<button class="nav-btn" data-section="resources"><span>📚</span>Resources</button>
+</nav>
+<div class="footer-note">NHMEC Herbalist Learning App • Educational use</div>
+</div>
+<script src="app.js"></script>
+</body></html>
