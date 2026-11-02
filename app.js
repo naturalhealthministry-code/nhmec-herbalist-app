@@ -238,7 +238,7 @@ function openNaturalHealthProject(pushHash=true){
     <div class="card lesson-body real-lesson">
       ${p.sections.map(s=>`<section class="lesson-section"><h3>${esc(s[0])}</h3><p>${esc(s[1])}</p></section>`).join('')}
       <div class="assignment-box"><span class="badge">Printable Project Worksheet</span><h3>30-Day Whole-Person Wellness Plan</h3><a class="btn btn-green" href="${encodeURI(p.file)}" target="_blank" rel="noopener">Open 30-Day Plan</a></div>
-      <div class="lesson-callout"><b>Assessment requirement:</b> The course requires a final assessment score of at least ${NATURAL_HEALTH.assessment.passing_score}%. The actual assessment questions were not included in the materials provided for this update, so they have not been invented.</div>
+      <div class="lesson-callout"><b>Assessment requirement:</b> The course requires a final assessment score of at least ${NATURAL_HEALTH.assessment.passing_score}%. The final assessment is now available from the course page and contains the 10 questions supplied by NHMEC.</div>
       <div class="lesson-nav"><button class="btn btn-sage" onclick="openNaturalHealthCourse()">Course contents</button></div>
     </div>`;
   showSection('lesson-detail',false);
@@ -312,7 +312,7 @@ function openBiblicalFaithReflection(pushHash=true){
     <div class="card lesson-body real-lesson">
       <section class="lesson-section"><h3>Reflection Instructions</h3>${renderBlocks(f.instructions)}</section>
       <section class="lesson-section"><h3>Closing Prayer</h3><p>${esc(BIBLICAL_FAITH.closing_prayer)}</p></section>
-      <div class="lesson-callout"><b>Final assessment:</b> ${esc(BIBLICAL_FAITH.assessment.note)}</div>
+      <div class="lesson-callout"><b>Final assessment:</b> The 10-question short-answer assessment is now available from the course page and requires instructor review.</div>
       <div class="lesson-nav"><button class="btn btn-sage" onclick="openBiblicalFaithCourse()">Course contents</button></div>
     </div>`;
   showSection('lesson-detail',false);
@@ -409,3 +409,257 @@ function routeFromHash(){
 document.addEventListener('DOMContentLoaded',()=>{ renderPathways();renderHerbs();renderQuiz(); document.getElementById('herbSearch').addEventListener('input',e=>renderHerbs(e.target.value)); document.querySelectorAll('[data-go]').forEach(x=>x.addEventListener('click',()=>showSection(x.dataset.go))); document.querySelectorAll('.nav-btn').forEach(x=>x.addEventListener('click',()=>showSection(x.dataset.section))); routeFromHash(); });
 window.addEventListener('popstate',routeFromHash);
 if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./service-worker.js').catch(()=>{}));}
+
+/* =========================================================
+   VERSION 7 — REQUIRED AGREEMENTS & FINAL ASSESSMENTS
+   ========================================================= */
+const ORIENTATION_V7_AGREEMENTS = [
+  "I understand that Canvas is no longer available for NHMEC classes, courses, membership access, assignments, videos, downloads, or student communication.",
+  "I understand that the PENothecary™ Membership Website, built through Google Sites, is now the main education center hub for NHMEC.",
+  "I understand that I must have access to a Google account or Google-connected email account to access the PENothecary™ Learning Hub.",
+  "I understand that every student must complete this Welcome & Orientation Class before beginning any NHMEC class, course, certificate, diploma, professional pathway, registry pathway, volunteer training, or membership-based learning.",
+  "I understand that NHMEC provides faith-centered herbal wellness education and does not provide medical diagnosis, treatment, prescription, cure, prevention of disease, or medical licensure.",
+  "I understand that certificates and diplomas from NHMEC represent educational completion and do not grant permission to practice medicine or any other regulated profession.",
+  "I understand that I am responsible for knowing and following the laws of my city, county, state, and country.",
+  "I understand that I must communicate respectfully, complete coursework honestly, and follow NHMEC student policies.",
+  "I understand that NHMEC course materials are protected educational materials and may not be copied, sold, shared, or redistributed without written permission.",
+  "I understand that older documents may still mention Canvas, but Canvas is no longer available and all current access is through the PENothecary™ Learning Hub."
+];
+
+const ORIENTATION_V7_QUESTIONS = [
+ {q:"What is the main student focus at NHMEC?",o:["Rush, memorize, finish, sell","Pray, Learn, Apply, Serve","Diagnose, prescribe, treat, cure","Skip, guess, submit, graduate"],a:1},
+ {q:"Is Canvas still available for NHMEC student learning?",o:["Yes","No"],a:1},
+ {q:"What is the current main learning hub for NHMEC?",o:["Canvas","The PENothecary™ Membership Website","Facebook only","A printed-only system"],a:1},
+ {q:"What kind of account is required to access the PENothecary™ Learning Hub?",o:["Bank account","Google account or Google-connected email","Medical license account","Social media account only"],a:1},
+ {q:"What does NHMEC provide?",o:["Medical licensure","Diagnosis and prescription authority","Faith-centered herbal wellness education","Emergency medical care"],a:2},
+ {q:"What does a certificate or diploma from NHMEC represent?",o:["Educational completion","State medical licensure","Permission to prescribe","Automatic national licensure"],a:0},
+ {q:"What should a student do if an older handout mentions Canvas?",o:["Ignore all course materials","Understand that Canvas references are outdated","Demand a refund immediately","Share the handout publicly"],a:1},
+ {q:"What does P.E.N. stand for in the Holistic P.E.N. Way™?",o:["Power, Energy, Nature","Perspective, Essence, Nutrition","Plants, Education, Notes","Prayer, Exercise, Nerves"],a:1},
+ {q:"What area does Perspective focus on?",o:["Spirit and worldview","Only calories","Only assignments","Only business"],a:0},
+ {q:"What area does Essence focus on?",o:["Soul, thoughts, emotions, stress, identity","Only herbs","Only test scores","Only technology"],a:0},
+ {q:"What area does Nutrition focus on?",o:["Body support, nourishment, herbs, lifestyle","Only church attendance","Only passwords","Only paperwork"],a:0},
+ {q:"Students should communicate with:",o:["Anger and pressure","Respect and patience","Gossip and accusation","No accountability"],a:1},
+ {q:"Students may copy and sell NHMEC course materials.",o:["True","False"],a:1},
+ {q:"NHMEC students should submit honest work.",o:["True","False"],a:0},
+ {q:"NHMEC students may diagnose disease after completing orientation.",o:["True","False"],a:1},
+ {q:"NHMEC students should tell people to stop medications.",o:["True","False"],a:1},
+ {q:"Proper educational language avoids cure claims.",o:["True","False"],a:0},
+ {q:"When should someone be referred to a licensed provider?",o:["When symptoms are severe, new, unexplained, or outside student scope","Never","Only after herbs fail","Only if the student feels like it"],a:0},
+ {q:"What should students do before beginning classes?",o:["Complete orientation","Skip the handbook","Copy materials","Ignore access instructions"],a:0},
+ {q:"What should students keep organized?",o:["Notes, downloads, worksheets, assignments, and certificates","Only social media posts","Only screenshots","Nothing"],a:0},
+ {q:"What is the purpose of the Student Success Portfolio?",o:["To collect and document student learning","To replace all assignments","To provide medical records","To diagnose clients"],a:0},
+ {q:"What is the minimum general passing score listed for NHMEC assessments unless otherwise stated?",o:["30%","50%","70%","100%"],a:2},
+ {q:"What should students do if they cannot access the PENothecary™?",o:["Check the correct Google account and contact NHMEC with details","Give up","Share the private link publicly","Create multiple random accounts"],a:0},
+ {q:"NHMEC education should be used with wisdom, proper scope, and respect for the law.",o:["True","False"],a:0},
+ {q:"What should students remember throughout their NHMEC journey?",o:["Pray, Learn, Apply, Serve","Rush, copy, claim, sell","Diagnose, prescribe, treat, cure","Avoid all assignments"],a:0}
+];
+
+const NATURAL_HEALTH_V7_SHORT = [
+ "What is the primary role of a natural-health educator?",
+ "What is the difference between supporting health and treating disease?",
+ "What does CLEAN stand for in this course?",
+ "Why is harsh cleansing not appropriate for everyone?",
+ "Approximately how much sleep do most adults need?",
+ "What is the general weekly physical-activity goal for adults?",
+ "Why must supplements be reviewed alongside medications?",
+ "True or false: A person’s blood type determines the foods required for optimal health.",
+ "Name three situations that require referral.",
+ "What is the purpose of a wellness journal?"
+];
+
+const BIBLICAL_FAITH_V7_SHORT = [
+ "What are the three parts of man presented in the guidebook?",
+ "What four instructions are found in Proverbs 4:20–21?",
+ "What does biblical wholeness include?",
+ "What is the first step toward spiritual wholeness?",
+ "What is sanctification?",
+ "What is the primary function of the human spirit?",
+ "What three areas are included in the soul?",
+ "Why should the physical body be cared for?",
+ "Who is identified as the center and foundation of biblical healing?",
+ "What is the purpose of a Scripture-based declaration?"
+];
+
+const BIBLICAL_HERBALISM_V7_QUESTIONS = [
+ ["What is the foundation of Biblical Herbalism?",["Herbs are the ultimate source of healing","God is Creator, Provider, and ultimate Healer","Plants should be worshiped because they are natural","All herbs are safe because they are from the earth"],1],
+ ["In Biblical Herbalism, herbs are best understood as:",["Magical objects","Objects of worship","Part of God’s creation and provision","Replacements for prayer and scripture"],2],
+ ["Genesis 1:29 teaches that God gave mankind:",["Only animal foods","Herbs bearing seed and fruit-bearing trees for food","A command to worship plants","Permission to use plants without wisdom"],1],
+ ["A Christian herbalist should view the body as:",["Unimportant compared to the spirit","A burden to ignore","A temple to steward with wisdom","Something herbs can completely control"],2],
+ ["A Christian herbalist is best described as someone who:",["Diagnoses and treats disease naturally","Replaces doctors with herbs","Studies and teaches herbs from a Christian worldview","Guarantees healing through biblical plants"],2],
+ ["Which statement best reflects the Christian herbalist’s role?",["I am the healer.","I provide educational wellness support within proper boundaries.","I can prescribe herbs instead of medication.","I know what every person needs."],1],
+ ["A Christian herbalist should not:",["Teach general herbal education","Encourage prayer","Diagnose, prescribe, treat, or cure disease","Study biblical plants"],2],
+ ["Which statement is safest and most appropriate?",["This herb will cure your condition.","This herb has been traditionally used for general wellness support.","You do not need medical care.","God told me this will heal you."],1],
+ ["Creator worship means:",["Honoring God as Maker of all things","Worshiping the earth","Trusting herbs more than God","Giving spiritual power to plants"],0],
+ ["Creation worship happens when a person:",["Thanks God for plants","Studies herbs responsibly","Gives devotion or spiritual power to created things instead of God","Uses herbs in food"],2],
+ ["Biblical Herbalism teaches that Christians should:",["Fear every herb","Worship herbs","Study herbs with gratitude, discernment, and safety","Use herbs without asking questions"],2],
+ ["Discernment means:",["Rejecting all plant knowledge","Judging wisely between truth and error according to God’s Word","Trusting every herbal tradition","Believing every online claim"],1],
+ ["Which practice should a Christian herbal student avoid?",["Making a cup of herbal tea","Studying biblical plants","Using herbs for spellwork, divination, or occult rituals","Growing herbs in a garden"],2],
+ ["Why are occult boundaries important in Christian herbalism?",["Because all herbs are occult","Because Christians must separate plant knowledge from unbiblical spiritual practices","Because plants should never be studied","Because biblical herbs are unsafe"],1],
+ ["Which phrase reflects safe Christian discernment?",["This plant spirit will guide you.","This ritual activates the herb.","We thank God for His creation and ask Him for wisdom.","The moon gives this herb its healing power."],2],
+ ["The Good Samaritan model teaches Christian herbalists to:",["Ignore people who are hurting","Serve with compassion, mercy, wisdom, and practical care","Make medical claims","Work without boundaries"],1],
+ ["In the Good Samaritan story, the Samaritan first responded with:",["Judgment","Compassion","Pride","Fear"],1],
+ ["The Good Samaritan poured in oil and wine. In this course, this should be understood as:",["A command to treat all wounds with oil and wine","A modern medical protocol","A picture of practical care in biblical context","Proof that medical care is unnecessary"],2],
+ ["Referral is important because:",["It means the herbalist failed","It shows wisdom when a need is outside the herbalist’s role","It should never be done","It replaces compassion"],1],
+ ["Which statement reflects the Good Samaritan model?",["I must do everything alone.","I should help wisely and involve others when needed.","I should never refer anyone.","I should promise healing."],1],
+ ["Prayer in Christian herbalism should be:",["Forced on everyone","Used to manipulate people","Offered with humility, permission, and compassion","Used instead of all safety considerations"],2],
+ ["Scripture should be used in wellness education to:",["Shame people who are suffering","Sell products through fear","Encourage, comfort, correct, and point people to God","Replace licensed medical care"],2],
+ ["Which statement is harmful and should be avoided?",["God sees you.","Let’s pray for wisdom.","If you had enough faith, you would be healed.","It may be wise to seek proper care."],2],
+ ["Whole-person wellness recognizes that a person is:",["Only a physical body","Only emotions","Spirit, soul, and body","Only symptoms"],2],
+ ["The Holistic P.E.N. Way™ connects:",["Perspective with spirit, Essence with soul, Nutrition with body","Plants with magic, energy, and rituals","Prescribing, Evaluating, and Naming diseases","Products, Earnings, and Numbers"],0],
+ ["In the Holistic P.E.N. Way™, “Perspective” relates primarily to:",["Spirit","Medication","Product pricing","Essential oils"],0],
+ ["In the Holistic P.E.N. Way™, “Essence” relates primarily to:",["The soul, emotions, thoughts, and inner life","Only food choices","Only herbal formulas","Only physical symptoms"],0],
+ ["In the Holistic P.E.N. Way™, “Nutrition” relates primarily to:",["Body nourishment and stewardship","Spirit guides","Religious titles","Occult rituals"],0],
+ ["Biblical foods and herbs should be studied:",["Without context","As automatic cures","With scripture, context, history, tradition, safety, and humility","Only by memorizing lists"],2],
+ ["A biblical mention of a plant means:",["The plant automatically cures disease","The plant is safe for everyone","The plant should be studied in context","The plant should be used in large amounts"],2],
+ ["Which is an example of a biblical food or plant discussed in the course?",["Olive oil","Artificial sweetener","Modern energy drink","Synthetic fragrance"],0],
+ ["Honey should not be given to:",["Adults","Infants under one year old","Anyone who reads Scripture","Students studying herbalism"],1],
+ ["Olive oil in Scripture may be studied as:",["Food, lamp oil, anointing oil, and practical care","A guaranteed cure","A magical oil","A replacement for God"],0],
+ ["Why must fish be discussed with caution?",["Fish is never mentioned in Scripture","Fish is always required for wellness","Some people have fish or seafood allergies or dietary restrictions","Fish replaces prayer"],2],
+ ["Garlic in food is different from concentrated garlic capsules because:",["Concentrated preparations may be stronger and require more safety awareness","Garlic is never a food","Garlic is always unsafe","Garlic should replace antibiotics"],0],
+ ["A responsible herb study should include:",["Only the herb’s common name","Only internet claims","Botanical name, plant part, preparation, safety, contraindications, and educational summary","Only personal opinion"],2],
+ ["A botanical name helps students:",["Make medical claims","Identify the plant more accurately","Avoid all safety research","Replace scripture"],1],
+ ["Why does plant part matter?",["Different parts of the same plant may have different uses and safety concerns","It does not matter","Only the flower is ever used","Plant parts are always identical"],0],
+ ["Which preparation is usually the most concentrated?",["A small food seasoning","A mild tea","An essential oil","A cooked meal"],2],
+ ["A contraindication is:",["A reason a person should avoid a particular herb, food, or preparation","A guarantee of safety","A type of prayer","A biblical herb name"],0],
+ ["Medication interactions matter because:",["Herbs can sometimes affect medications or medical conditions","Herbs never interact with anything","Medication decisions belong to herbalists","Safety questions are unnecessary"],0],
+ ["Which statement reflects proper scope of practice?",["Stop taking your medication.","This herb treats your disease.","Please consult your licensed healthcare provider about medication questions.","Doctors are never needed."],2],
+ ["Educational disclaimers are important because they:",["Replace ethics","Clarify that information is for education and not diagnosis, treatment, or medical advice","Allow the herbalist to make any claim","Remove the need for safety"],1],
+ ["Which statement is a proper educational disclaimer?",["This course teaches how to cure disease.","This information is educational only and is not intended to diagnose, treat, cure, or prevent disease.","Medical care is unnecessary.","All herbs are safe for everyone."],1],
+ ["The woman with the issue of blood teaches students to:",["Shame chronic suffering","Promise instant healing","Treat long-term suffering with compassion and dignity","Reject all medical care"],2],
+ ["Hannah’s story teaches that:",["Grief should be mocked","Prayer is a place where sorrow can be poured out before God","Every woman is guaranteed a child","Infertility is simple to fix with herbs"],1],
+ ["The bent-over woman’s story shows that Jesus:",["Ignored women’s suffering","Saw her, called her, restored her, and she glorified God","Blamed her publicly","Told her to suffer silently"],1],
+ ["Naaman’s servant girl teaches Christian herbal students about:",["Overstepping their role","Humble referral and pointing someone toward help","Making promises","Refusing to speak hope"],1],
+ ["Women’s wellness should be handled with:",["Shame and pressure","Dignity, compassion, safety, and wisdom","Quick claims and guarantees","Judgment and sarcasm"],1],
+ ["The overall goal of Biblical Herbalism Foundations is to help students:",["Replace God with herbs","Diagnose and treat disease naturally","Study herbs, Scripture, safety, and whole-person wellness through a Christ-centered educational approach","Practice occult herbal rituals"],2]
+].map((x,i)=>({q:x[0],o:x[1],a:x[2],n:i+1}));
+
+const OFFICIAL_FORMS = {
+  orientationAgreement: "https://docs.google.com/forms/d/e/1FAIpQLSeJZgMm7VahntoecNmboY8vX0sv_IbYiEuV8WrtSTz35Ycz4Q/viewform",
+  orientationAssessment: "https://docs.google.com/forms/d/e/1FAIpQLSdm1Uckvf7dWEDdMQM9T8kyqkbeuxwMMN2f0FxSXSVaLw3zeA/viewform",
+  naturalHealthAssessment: "https://docs.google.com/forms/d/e/1FAIpQLSdBGJAyssGxe5SDSWQD7tzHON5cpjbTs2iQAjQn2VkCaOjsKw/viewform",
+  biblicalFaithAssessment: "https://docs.google.com/forms/d/e/1FAIpQLScVfaf04lUnuEV7jWM7UqGJ6TxUWMFNrHHjaq_Xo2YffTGQfA/viewform",
+  biblicalHerbalismAssessment: "https://docs.google.com/forms/d/e/1FAIpQLSfuTf50c2fVbMjb4IdYP8VgE_4hi76Al9ojS8Jnp7vePkdYNA/viewform"
+};
+function officialFormLink(key,label='Open Official Google Form'){
+  const url=OFFICIAL_FORMS[key];
+  return url?`<a class="btn btn-official" href="${url}" target="_blank" rel="noopener noreferrer">${esc(label)} ↗</a>`:'';
+}
+
+const BIBLICAL_HERBALISM_COMPLETION = "I understand that this course is for educational and faith-centered wellness learning only. I understand that Christian herbal education does not replace licensed medical care, emergency care, counseling, or professional healthcare guidance. I understand that I should use wisdom, safety, discernment, and proper scope when studying or sharing herbal information.";
+
+function studentInfoHTML(key){
+  const saved=JSON.parse(localStorage.getItem('nhmec-student-info')||'{}');
+  return `<div class="card"><h3>Student Information</h3><div class="assessment-form"><label><span class="field-label">Name *</span><input class="form-input" id="${key}-name" value="${esc(saved.name||'')}" autocomplete="name"></label><label><span class="field-label">Email *</span><input class="form-input" id="${key}-email" type="email" value="${esc(saved.email||'')}" autocomplete="email"></label></div><p class="assessment-note">This app stores your name, email, answers, and scores on this device only. It does not send them to NHMEC.</p></div>`;
+}
+function saveStudentInfo(key){
+  const name=document.getElementById(`${key}-name`)?.value.trim()||'';
+  const email=document.getElementById(`${key}-email`)?.value.trim()||'';
+  if(!name||!email){alert('Please enter your name and email first.');return null;}
+  localStorage.setItem('nhmec-student-info',JSON.stringify({name,email})); return {name,email};
+}
+function assessmentStatus(key,label,passScore){
+  const r=JSON.parse(localStorage.getItem(key)||'null'); if(!r)return '';
+  if(r.manual) return `<div class="status-pill warn">Saved • Instructor review required</div>`;
+  const passed=r.percent>=passScore;
+  return `<div class="status-pill ${passed?'pass':'warn'}">${passed?'Passed':'Retake needed'} • ${r.percent}%</div>`;
+}
+
+function openOrientationAgreement(pushHash=true){
+  const saved=JSON.parse(localStorage.getItem('nhmec-orientation-agreement')||'null');
+  document.getElementById('lessonDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="openOrientationCourse()">← Welcome & Orientation</button></div><div class="detail-hero"><span class="badge">Required Student Agreement</span><h2>Final Orientation Agreement</h2><p>Review every statement and select your response.</p></div>${studentInfoHTML('orientation-agreement')}<div class="card"><div class="agreement-list">${ORIENTATION_V7_AGREEMENTS.map((x,i)=>`<div class="agreement-item"><b>${i+1}.</b> ${esc(x)}</div>`).join('')}</div><h3>Do you agree? *</h3><div class="choice-row"><button class="choice-btn ${saved?.choice==='Yes'?'selected':''}" onclick="selectOrientationAgreement('Yes',this)">Yes</button><button class="choice-btn ${saved?.choice==='No'?'selected':''}" onclick="selectOrientationAgreement('No',this)">No</button><button class="choice-btn ${saved?.choice==='Maybe'?'selected':''}" onclick="selectOrientationAgreement('Maybe',this)">Maybe</button></div><input type="hidden" id="orientation-agreement-choice" value="${esc(saved?.choice||'')}"><div class="assessment-actions"><button class="btn btn-green" onclick="saveOrientationAgreement()">Save agreement on this device</button>${officialFormLink('orientationAgreement','Submit Official Agreement to NHMEC')}<button class="btn btn-sage" onclick="openOrientationAssessmentIntro()">Continue to assessment</button></div><p class="assessment-note"><b>Official submission:</b> Use the Google Form button so NHMEC receives your agreement. Saving it in the app only stores a copy on this device.</p><div id="orientation-agreement-status">${saved?`<p><b>Saved response:</b> ${esc(saved.choice)}</p>`:''}</div></div>`;
+  showSection('lesson-detail',false); if(pushHash)history.pushState(null,'','#orientation/agreement');
+}
+function selectOrientationAgreement(choice,btn){ document.getElementById('orientation-agreement-choice').value=choice; document.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('selected')); btn.classList.add('selected'); }
+function saveOrientationAgreement(){ const info=saveStudentInfo('orientation-agreement'); if(!info)return; const choice=document.getElementById('orientation-agreement-choice').value; if(!choice){alert('Please select Yes, No, or Maybe.');return;} const data={...info,choice,date:new Date().toISOString()}; localStorage.setItem('nhmec-orientation-agreement',JSON.stringify(data)); document.getElementById('orientation-agreement-status').innerHTML=`<p><b>Agreement saved:</b> ${esc(choice)}${choice==='Yes'?' — requirement acknowledged.':' — review the agreement with NHMEC before proceeding.'}</p>`; }
+
+function openOrientationAssessmentIntro(pushHash=true){
+  document.getElementById('lessonDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="openOrientationCourse()">← Welcome & Orientation</button></div><div class="detail-hero"><span class="badge">Final Open-Book Orientation Assessment</span><h2>25 Questions</h2><p>Passing score: 70% minimum. You may review the orientation material and retake the assessment if needed.</p></div>${studentInfoHTML('orientation-quiz')}<div class="card"><h3>Instructions</h3><p>Complete this assessment after reviewing all orientation modules.</p>${assessmentStatus('nhmec-orientation-v7-result','Orientation',70)}<div class="assessment-actions"><button class="btn btn-green" onclick="startOrientationV7()">Practice assessment in app</button>${officialFormLink('orientationAssessment','Take Official Assessment for NHMEC')}</div><p class="assessment-note">The in-app assessment is for practice and local progress. Use the official Google Form for the assessment NHMEC receives.</p></div>`;
+  showSection('lesson-detail',false); if(pushHash)history.pushState(null,'','#orientation/assessment');
+}
+function startOrientationV7(){ if(!saveStudentInfo('orientation-quiz'))return; state.orientationQuizIndex=0; state.orientationQuizScore=0; state.orientationAnswered=false; renderOrientationV7Question(); }
+function renderOrientationV7Question(){
+  const i=state.orientationQuizIndex,q=ORIENTATION_V7_QUESTIONS[i];
+  if(!q){const percent=Math.round(state.orientationQuizScore/ORIENTATION_V7_QUESTIONS.length*100),passed=percent>=70; localStorage.setItem('nhmec-orientation-v7-result',JSON.stringify({score:state.orientationQuizScore,total:25,percent,date:new Date().toISOString()})); document.getElementById('lessonDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="openOrientationCourse()">← Welcome & Orientation</button></div><div class="detail-hero"><span class="badge">Assessment Complete</span><h2>${passed?'Passed':'Review & Retake'} — ${percent}%</h2><p>${state.orientationQuizScore} of 25 correct • 70% minimum required.</p></div><div class="card"><h3>${passed?'Orientation assessment passed':'Review the orientation materials'}</h3><p>${passed?'Your score has been saved on this device. Remember that the Final Orientation Agreement must also be completed.':'Review the modules, then retake the open-book assessment.'}</p><div class="assessment-actions"><button class="btn btn-green" onclick="openOrientationAssessmentIntro(false)">Retake practice</button>${officialFormLink('orientationAssessment','Submit Official Assessment')}<button class="btn btn-sage" onclick="openOrientationAgreement(false)">Orientation Agreement</button></div></div>`; return;}
+  const pct=Math.round(i/ORIENTATION_V7_QUESTIONS.length*100); state.orientationAnswered=false;
+  document.getElementById('lessonDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="openOrientationAssessmentIntro(false)">← Assessment instructions</button></div><div class="detail-hero"><span class="badge">Final Open-Book Orientation Assessment</span><h2>Question ${i+1} of 25</h2><p>Passing score: 70% minimum.</p></div><div class="progress"><span style="width:${pct}%"></span></div><div class="quiz-card"><h3>${esc(q.q)}</h3><div id="orientation-v7-options">${q.o.map((o,j)=>`<button class="mc-option" onclick="answerOrientationV7(${j},this)"><b>${String.fromCharCode(65+j)}.</b> ${esc(o)}</button>`).join('')}</div><div class="quiz-feedback" id="orientation-v7-feedback"></div><button id="orientation-v7-next" class="btn btn-green" style="display:none" onclick="nextOrientationV7()">${i===24?'See results':'Next question'}</button></div>`;
+}
+function answerOrientationV7(j,btn){ if(state.orientationAnswered)return; state.orientationAnswered=true; const q=ORIENTATION_V7_QUESTIONS[state.orientationQuizIndex],buttons=[...document.querySelectorAll('#orientation-v7-options .mc-option')]; buttons[q.a].classList.add('correct'); if(j!==q.a)btn.classList.add('wrong'); else state.orientationQuizScore++; document.getElementById('orientation-v7-feedback').innerHTML=j===q.a?'<b>Correct.</b>':'<b>Review this item.</b> The correct answer is highlighted.'; document.getElementById('orientation-v7-next').style.display='inline-block'; }
+function nextOrientationV7(){state.orientationQuizIndex++;renderOrientationV7Question();window.scrollTo({top:0,behavior:'smooth'});}
+function openOrientationAssessment(pushHash=true){return openOrientationAssessmentIntro(pushHash);}
+
+function openShortAnswerAssessment(kind,pushHash=true){
+  const natural=kind==='natural-health'; const qs=natural?NATURAL_HEALTH_V7_SHORT:BIBLICAL_FAITH_V7_SHORT;
+  const title=natural?'NATURAL HEALTH FOUNDATIONS 101 Final Assessment':'BIBLICAL FAITH & HEALTH FOUNDATIONS FINAL ASSESSMENT';
+  const key=natural?'nhmec-natural-health-final':'nhmec-biblical-faith-final'; const back=natural?'openNaturalHealthCourse()':'openBiblicalFaithCourse()';
+  const officialKey=natural?'naturalHealthAssessment':'biblicalFaithAssessment';
+  const saved=JSON.parse(localStorage.getItem(key)||'null')||{};
+  document.getElementById('lessonDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="${back}">← Back to course</button></div><div class="detail-hero"><span class="badge">Final Assessment</span><h2>${esc(title)}</h2><p>${natural?'Complete the questions and submit all completed course worksheets.':'Complete all worksheets and answer all questions.'}</p></div>${studentInfoHTML(kind+'-short')}<div class="local-only"><b>Practice copy:</b> The app can save these short-answer responses on the student’s device, but it cannot send worksheet files or assign an instructor grade. Use the official NHMEC Google Form below to upload worksheets and submit the assessment.</div><div class="card official-submit-card"><span class="badge">Official Submission</span><h3>Send this assessment to NHMEC</h3><p>The Google Form is the official submission record for this course.</p>${officialFormLink(officialKey,'Open Official NHMEC Google Form')}</div><div class="card assessment-form">${qs.map((q,i)=>`<label class="question-block"><span class="field-label"><span class="question-number">${i+1}</span>${esc(q)}</span><textarea class="form-textarea" id="${kind}-q-${i}">${esc(saved.answers?.[i]||'')}</textarea></label>`).join('')}<div class="assessment-actions"><button class="btn btn-green" onclick="saveShortAnswerAssessment('${kind}')">Save practice responses</button>${officialFormLink(officialKey,'Submit Official Assessment')}<button class="btn btn-sage" onclick="${back}">Back to course</button></div><div id="${kind}-short-status">${saved.date?'<p><b>Saved for instructor review.</b></p>':''}</div></div>`;
+  showSection('lesson-detail',false); if(pushHash)history.pushState(null,'',`#assessment/${kind}`);
+}
+function saveShortAnswerAssessment(kind){const info=saveStudentInfo(kind+'-short');if(!info)return;const qs=kind==='natural-health'?NATURAL_HEALTH_V7_SHORT:BIBLICAL_FAITH_V7_SHORT;const answers=qs.map((_,i)=>document.getElementById(`${kind}-q-${i}`).value.trim());if(answers.some(a=>!a)){if(!confirm('Some answers are blank. Save anyway?'))return;}const key=kind==='natural-health'?'nhmec-natural-health-final':'nhmec-biblical-faith-final';localStorage.setItem(key,JSON.stringify({...info,answers,manual:true,date:new Date().toISOString()}));document.getElementById(`${kind}-short-status`).innerHTML='<p><b>Responses saved on this device.</b> Instructor review is required for the final score.</p>';}
+
+let bhExamIndex=0,bhExamScore=0,bhExamAnswered=false;
+function openBiblicalHerbalismAssessmentIntro(pushHash=true){
+  const saved=JSON.parse(localStorage.getItem('nhmec-bh-completion')||'null');
+  document.getElementById('lessonDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="openBiblicalHerbalismCourse()">← Biblical Herbalism Foundations</button></div><div class="detail-hero"><span class="badge">Final Open-Book Assessment</span><h2>50 Questions</h2><p>Use your course PDFs, lesson notes, Scripture references, and student workbook. Passing score: 40/50 = 80%.</p></div>${studentInfoHTML('bh-exam')}<div class="card"><h3>Student Completion Statement</h3><p>${esc(BIBLICAL_HERBALISM_COMPLETION)}</p><div class="choice-row"><button class="choice-btn ${saved?.choice==='YES'?'selected':''}" onclick="selectBHCompletion('YES',this)">YES</button><button class="choice-btn ${saved?.choice==='No'?'selected':''}" onclick="selectBHCompletion('No',this)">No</button></div><input type="hidden" id="bh-completion-choice" value="${esc(saved?.choice||'')}">${assessmentStatus('nhmec-bh-exam-result','Biblical Herbalism',80)}<div class="assessment-actions"><button class="btn btn-green" onclick="startBHExam()">Practice 50-question assessment in app</button>${officialFormLink('biblicalHerbalismAssessment','Take Official Assessment for NHMEC')}</div><p class="assessment-note">The official Google Form is the submission NHMEC receives. The in-app version is for study, practice, and local progress.</p></div>`;
+  showSection('lesson-detail',false); if(pushHash)history.pushState(null,'','#biblical-herbalism/assessment');
+}
+function selectBHCompletion(choice,btn){document.getElementById('bh-completion-choice').value=choice;document.querySelectorAll('.choice-btn').forEach(b=>b.classList.remove('selected'));btn.classList.add('selected');}
+function startBHExam(){const info=saveStudentInfo('bh-exam');if(!info)return;const choice=document.getElementById('bh-completion-choice').value;if(!choice){alert('Please answer the Student Completion Statement first.');return;}localStorage.setItem('nhmec-bh-completion',JSON.stringify({...info,choice,date:new Date().toISOString()}));if(choice!=='YES'){alert('The completion statement must be answered YES before the final assessment can be completed.');return;}bhExamIndex=0;bhExamScore=0;bhExamAnswered=false;renderBHExamQuestion();}
+function renderBHExamQuestion(){const q=BIBLICAL_HERBALISM_V7_QUESTIONS[bhExamIndex];if(!q){const percent=Math.round(bhExamScore/50*100),passed=bhExamScore>=40;localStorage.setItem('nhmec-bh-exam-result',JSON.stringify({score:bhExamScore,total:50,percent,date:new Date().toISOString()}));document.getElementById('lessonDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="openBiblicalHerbalismCourse()">← Biblical Herbalism Foundations</button></div><div class="detail-hero"><span class="badge">Final Assessment Complete</span><h2>${passed?'Passed':'Review & Retake'} — ${percent}%</h2><p>${bhExamScore} of 50 correct • 40 correct required to pass.</p></div><div class="card"><h3>${passed?'Biblical Herbalism Foundations assessment passed':'Continue reviewing the course'}</h3><p>Your result is saved on this device. ${passed?'The student completion statement is also recorded as YES.':'Review your lesson PDFs and retake the open-book assessment when ready.'}</p><div class="assessment-actions"><button class="btn btn-green" onclick="openBiblicalHerbalismAssessmentIntro(false)">Retake practice</button>${officialFormLink('biblicalHerbalismAssessment','Submit Official Assessment')}</div></div>`;return;}bhExamAnswered=false;const pct=Math.round(bhExamIndex/50*100);document.getElementById('lessonDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="openBiblicalHerbalismAssessmentIntro(false)">← Assessment instructions</button></div><div class="detail-hero"><span class="badge">Biblical Herbalism Final Assessment</span><h2>Question ${q.n} of 50</h2><p>80% passing score required.</p></div><div class="progress"><span style="width:${pct}%"></span></div><div class="quiz-card"><h3>${esc(q.q)}</h3><div id="bh-exam-options">${q.o.map((o,j)=>`<button class="mc-option" onclick="answerBHExam(${j},this)"><b>${String.fromCharCode(65+j)}.</b> ${esc(o)}</button>`).join('')}</div><div class="quiz-feedback" id="bh-exam-feedback"></div><button id="bh-exam-next" class="btn btn-green" style="display:none" onclick="nextBHExam()">${q.n===50?'See results':'Next question'}</button></div>`;}
+function answerBHExam(j,btn){if(bhExamAnswered)return;bhExamAnswered=true;const q=BIBLICAL_HERBALISM_V7_QUESTIONS[bhExamIndex],buttons=[...document.querySelectorAll('#bh-exam-options .mc-option')];buttons[q.a].classList.add('correct');if(j!==q.a)btn.classList.add('wrong');else bhExamScore++;document.getElementById('bh-exam-feedback').innerHTML=j===q.a?'<b>Correct.</b>':'<b>Review this item.</b> The correct answer is highlighted.';document.getElementById('bh-exam-next').style.display='inline-block';}
+function nextBHExam(){bhExamIndex++;renderBHExamQuestion();window.scrollTo({top:0,behavior:'smooth'});}
+
+/* Course-page overrides with the supplied final assessments */
+function openOrientationCourse(pushHash=true){
+  const complete=JSON.parse(localStorage.getItem('nhmec-orientation-complete')||'{}'); const total=ORIENTATION.modules.reduce((n,m)=>n+m.lessons.length,0); const done=Object.values(complete).filter(Boolean).length; const pct=Math.round(done/total*100)||0;
+  const agreement=JSON.parse(localStorage.getItem('nhmec-orientation-agreement')||'null');
+  document.getElementById('courseDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="showSection('courses')">← All courses</button></div><div class="detail-hero"><span class="badge">NHMEC 100 • Required Orientation</span><h2>${esc(ORIENTATION.title)}</h2><p>${esc(ORIENTATION.subtitle)}</p></div><div class="card"><h3>Course overview</h3><p>${esc(ORIENTATION.description)}</p><div class="lesson-callout"><b>Student focus:</b> ${esc(ORIENTATION.student_focus)}</div></div><div class="card"><div class="course-progress-head"><div><h3>Your orientation progress</h3><p>${done} of ${total} lessons marked complete</p></div><b>${pct}%</b></div><div class="progress"><span style="width:${pct}%"></span></div></div>${requiredReadingHTML()}<div class="section-head"><div><h2>10 Orientation Modules</h2><p>Open a module to read the real NHMEC lessons, reflection, and assignment.</p></div></div><div class="card-grid">${ORIENTATION.modules.map(m=>`<button class="card lesson-card module-card" onclick="openOrientationModule(${m.number})"><span class="lesson-number">${m.number}</span><span><h3>${esc(m.title)}</h3><p>${m.lessons.length} lessons${m.extras.assignment?' • reflection & assignment':''}</p></span><span class="arrow">›</span></button>`).join('')}</div><div class="card assessment-promo"><span class="badge">Required Agreement</span><h3>Final Orientation Agreement</h3><p>Review and acknowledge the 10 required orientation statements.</p>${agreement?`<div class="status-pill ${agreement.choice==='Yes'?'pass':'warn'}">Saved response: ${esc(agreement.choice)}</div>`:''}<div class="assessment-actions"><button class="btn btn-green" onclick="openOrientationAgreement()">Review agreement in app</button>${officialFormLink('orientationAgreement','Official Agreement Form')}</div></div><div class="card assessment-promo"><span class="badge">Final Assessment</span><h3>25-Question Open-Book Orientation Assessment</h3><p>Passing score: 70% minimum. Students may review the orientation material and retake the assessment if needed.</p>${assessmentStatus('nhmec-orientation-v7-result','Orientation',70)}<div class="assessment-actions"><button class="btn btn-green" onclick="openOrientationAssessmentIntro()">Practice in app</button>${officialFormLink('orientationAssessment','Official Assessment Form')}</div></div>`;
+  showSection('course-detail',false); if(pushHash)history.pushState(null,'','#course/welcome-orientation');
+}
+function openNaturalHealthCourse(pushHash=true){
+  const complete=naturalHealthCompleteMap(); const done=Object.values(complete).filter(Boolean).length,total=NATURAL_HEALTH.lessons.length,pct=Math.round(done/total*100)||0;
+  document.getElementById('courseDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="showSection('courses')">← All courses</button></div><div class="detail-hero"><span class="badge">${esc(NATURAL_HEALTH.course_level)} • 4-Lesson Short Course</span><h2>${esc(NATURAL_HEALTH.title)}</h2><p>${esc(NATURAL_HEALTH.subtitle)}</p></div><div class="card"><h3>Course Description</h3><p>${esc(NATURAL_HEALTH.description)}</p><div class="meta course-facts"><b>Instructor</b><span>${esc(NATURAL_HEALTH.instructor)}</span><b>Length</b><span>${esc(NATURAL_HEALTH.course_length)}</span><b>Delivery</b><span>${esc(NATURAL_HEALTH.delivery)}</span></div></div><div class="card"><h3>Learning Objectives</h3><ul class="outcomes">${NATURAL_HEALTH.objectives.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="card"><h3>Completion Requirements</h3><ul class="outcomes">${NATURAL_HEALTH.completion.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="card"><div class="course-progress-head"><div><h3>Your course progress</h3><p>${done} of ${total} lessons marked complete</p></div><b>${pct}%</b></div><div class="progress"><span style="width:${pct}%"></span></div></div>${naturalHealthResourcesHTML()}<div class="section-head"><div><h2>Four Lessons</h2><p>Open each lesson for the full updated teaching content and assignment.</p></div></div><div class="card-grid">${NATURAL_HEALTH.lessons.map((l,i)=>`<button class="card lesson-card" onclick="openNaturalHealthLesson(${i})"><span class="lesson-number">${l.number}</span><span><h3>${esc(l.title)}</h3><p>${esc(l.purpose)}</p></span><span class="arrow">›</span></button>`).join('')}</div><div class="card assessment-promo"><span class="badge">Final Project</span><h3>${esc(NATURAL_HEALTH.project.title)}</h3><p>Create the 30-Day Whole-Person Wellness Plan using the P.E.N. Way™, CLEAN, ABC Plus D, safety review, measurable goals, progress journal, and reassessment.</p><button class="btn btn-green" onclick="openNaturalHealthProject()">Open final project</button></div><div class="card assessment-promo"><span class="badge">Final Assessment</span><h3>10 Short-Answer Questions • 80% Required</h3><p>Complete the final assessment and submit all completed worksheets through the NHMEC submission process.</p>${assessmentStatus('nhmec-natural-health-final','Natural Health',80)}<div class="assessment-actions"><button class="btn btn-green" onclick="openShortAnswerAssessment('natural-health')">Review questions in app</button>${officialFormLink('naturalHealthAssessment','Official Submission Form')}</div></div><div class="notice install-box"><b>Educational Disclaimer:</b> ${esc(NATURAL_HEALTH.disclaimer)}</div>`;
+  showSection('course-detail',false);if(pushHash)history.pushState(null,'','#course/foundations-natural-health');
+}
+function openBiblicalFaithCourse(pushHash=true){
+ const complete=biblicalFaithCompleteMap(),done=Object.values(complete).filter(Boolean).length,total=BIBLICAL_FAITH.lessons.length,pct=Math.round(done/total*100)||0;
+ document.getElementById('courseDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="showSection('courses')">← All courses</button></div><div class="detail-hero"><span class="badge">${esc(BIBLICAL_FAITH.code)} • 4-Lesson Class</span><h2>${esc(BIBLICAL_FAITH.title)}</h2><p>${esc(BIBLICAL_FAITH.subtitle)}</p></div><div class="card"><h3>Course Description</h3><p>${esc(BIBLICAL_FAITH.description)}</p><div class="meta course-facts"><b>Program</b><span>${esc(BIBLICAL_FAITH.program)}</span><b>Instructor</b><span>${esc(BIBLICAL_FAITH.instructor)}</span><b>Format</b><span>${esc(BIBLICAL_FAITH.format)}</span></div></div><div class="card"><h3>Learning Focus</h3><ul class="outcomes">${BIBLICAL_FAITH.objectives.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="card"><h3>Completion Requirements</h3><ul class="outcomes">${BIBLICAL_FAITH.completion.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="card"><div class="course-progress-head"><div><h3>Your course progress</h3><p>${done} of ${total} lessons marked complete</p></div><b>${pct}%</b></div><div class="progress"><span style="width:${pct}%"></span></div></div>${biblicalFaithResourcesHTML()}<div class="section-head"><div><h2>Four Lessons</h2><p>Open each lesson for teaching, required reading, and the printable assignment.</p></div></div><div class="card-grid">${BIBLICAL_FAITH.lessons.map((l,i)=>`<button class="card lesson-card" onclick="openBiblicalFaithLesson(${i})"><span class="lesson-number">${l.number}</span><span><h3>${esc(l.title)}</h3><p>${esc(l.reading)}</p></span><span class="arrow">›</span></button>`).join('')}</div><div class="card assessment-promo"><span class="badge">Final Reflection</span><h3>${esc(BIBLICAL_FAITH.final_reflection.title)}</h3><p>Complete after all four lessons and worksheets.</p><button class="btn btn-green" onclick="openBiblicalFaithReflection()">Open final reflection</button></div><div class="card assessment-promo"><span class="badge">Final Assessment</span><h3>10 Short-Answer Questions</h3><p>Complete all worksheets and answer all final assessment questions. Instructor review is required for scoring.</p>${assessmentStatus('nhmec-biblical-faith-final','Biblical Faith',70)}<div class="assessment-actions"><button class="btn btn-green" onclick="openShortAnswerAssessment('biblical-faith')">Review questions in app</button>${officialFormLink('biblicalFaithAssessment','Official Submission Form')}</div></div><div class="card"><span class="badge">Closing Prayer</span><p>${esc(BIBLICAL_FAITH.closing_prayer)}</p></div><div class="notice install-box"><b>Educational Statement:</b> ${esc(BIBLICAL_FAITH.educational_statement)}</div>`;
+ showSection('course-detail',false);if(pushHash)history.pushState(null,'','#course/biblical-faith-health');
+}
+function openBiblicalHerbalismCourse(pushHash=true){
+ const complete=biblicalHerbalismCompleteMap(),total=BIBLICAL_HERBALISM.lessons.length,done=Object.values(complete).filter(Boolean).length,pct=Math.round(done/total*100)||0;
+ document.getElementById('courseDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="showSection('courses')">← All courses</button></div><div class="detail-hero"><span class="badge">Module 2.1 • Biblical Herbalism</span><h2>${esc(BIBLICAL_HERBALISM.title)}</h2><p>${esc(BIBLICAL_HERBALISM.subtitle)}</p></div><div class="card"><h3>Course overview</h3><p>${esc(BIBLICAL_HERBALISM.description)}</p><div class="lesson-callout"><b>Instructor:</b> ${esc(BIBLICAL_HERBALISM.instructor)}</div></div><div class="card"><h3>Learning outcomes</h3><ul class="outcomes">${BIBLICAL_HERBALISM.objectives.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="card"><div class="course-progress-head"><div><h3>Your course progress</h3><p>${done} of ${total} lessons marked complete</p></div><b>${pct}%</b></div><div class="progress"><span style="width:${pct}%"></span></div></div><div class="card"><h3>Completion checklist</h3><ul class="outcomes">${BIBLICAL_HERBALISM.completion.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>${biblicalHerbalismResourcesHTML()}<div class="section-head"><div><h2>Eight Lessons</h2><p>Open each lesson for the original NHMEC teaching content and student activities.</p></div></div><div class="card-grid">${BIBLICAL_HERBALISM.lessons.map((l,i)=>`<button class="card lesson-card" onclick="openBiblicalHerbalismLesson(${i})"><span class="lesson-number">${l.number}</span><span><h3>${esc(l.title)}</h3><p>${esc(l.subtitle)}</p></span><span class="arrow">›</span></button>`).join('')}</div><div class="card assessment-promo"><span class="badge">Final Assessment</span><h3>50-Question Open-Book Assessment</h3><p>40 of 50 correct = 80% passing score. Includes the required Student Completion Statement.</p>${assessmentStatus('nhmec-bh-exam-result','Biblical Herbalism',80)}<div class="assessment-actions"><button class="btn btn-green" onclick="openBiblicalHerbalismAssessmentIntro()">Practice in app</button>${officialFormLink('biblicalHerbalismAssessment','Official Assessment Form')}</div></div><div class="notice install-box"><b>Educational Statement:</b> ${esc(BIBLICAL_HERBALISM.educational_statement)}</div>`;
+ showSection('course-detail',false);if(pushHash)history.pushState(null,'','#course/biblical-herbalism');
+}
+
+function openOrientationModule(n,pushHash=true){
+ const m=moduleByNumber(n); if(!m)return; const extras=[];
+ if(m.extras.reflection)extras.push(`<div class="card assignment-card"><span class="badge">Reflection</span><h3>Module ${m.number} Reflection</h3>${renderBlocks(m.extras.reflection)}</div>`);
+ if(m.extras.assignment)extras.push(`<div class="card assignment-card"><span class="badge">Assignment</span><h3>Module ${m.number} Assignment</h3>${renderBlocks(m.extras.assignment)}</div>`);
+ if(m.extras.final_assignment)extras.push(`<div class="card assignment-card"><span class="badge">Final Portfolio</span><h3>Final Orientation Assignment</h3>${renderBlocks(m.extras.final_assignment)}</div>`);
+ document.getElementById('lessonDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="openOrientationCourse()">← Welcome & Orientation</button></div><div class="detail-hero"><span class="badge">Module ${m.number} of 10</span><h2>${esc(m.title)}</h2><p>${esc((m.purpose||[]).join(' '))}</p></div><div class="card"><h3>Learning objectives</h3><ul class="outcomes">${m.objectives.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div class="section-head"><div><h2>Module Lessons</h2><p>Read each lesson in order.</p></div><small>${m.lessons.length} lessons</small></div><div class="card-grid">${m.lessons.map((l,i)=>`<button class="card lesson-card" onclick="openOrientationLesson(${m.number},${i})"><span class="lesson-number">${esc(l.number)}</span><span><h3>${esc(l.title)}</h3><p>${lessonStatus(m.number,i)}</p></span><span class="arrow">›</span></button>`).join('')}</div>${extras.join('')}${m.number===10?`<div class="card assessment-promo"><span class="badge">Required Agreement</span><h3>Final Orientation Agreement</h3><div class="assessment-actions"><button class="btn btn-green" onclick="openOrientationAgreement()">Review agreement in app</button>${officialFormLink('orientationAgreement','Official Agreement Form')}</div></div><div class="card assessment-promo"><span class="badge">Final Assessment</span><h3>25 open-book questions</h3><p>70% minimum passing score.</p><div class="assessment-actions"><button class="btn btn-green" onclick="openOrientationAssessmentIntro()">Practice in app</button>${officialFormLink('orientationAssessment','Official Assessment Form')}</div></div>`:''}`;
+ showSection('lesson-detail',false);if(pushHash)history.pushState(null,'',`#orientation/module/${m.number}`);
+}
+function openOrientationLesson(moduleNum,index,pushHash=true){
+ const m=moduleByNumber(moduleNum);if(!m||!m.lessons[index])return;const l=m.lessons[index],complete=JSON.parse(localStorage.getItem('nhmec-orientation-complete')||'{}'),done=!!complete[lessonKey(moduleNum,index)];let next='';if(index<m.lessons.length-1)next=`<button class="btn btn-green" onclick="openOrientationLesson(${moduleNum},${index+1})">Next lesson →</button>`;else if(moduleNum<10)next=`<button class="btn btn-green" onclick="openOrientationModule(${moduleNum+1})">Next module →</button>`;else next=`<button class="btn btn-green" onclick="openOrientationAgreement()">Final agreement →</button>`;document.getElementById('lessonDetail').innerHTML=`<div class="backbar"><button class="backbtn" onclick="openOrientationModule(${moduleNum})">← Module ${moduleNum}</button></div><div class="detail-hero"><span class="badge">Lesson ${esc(l.number)}</span><h2>${esc(l.title)}</h2><p>NHMEC 100 • Welcome & Orientation</p></div><article class="card lesson-body real-lesson">${renderBlocks(l.content)}<div class="complete-box"><button class="btn ${done?'btn-sage':'btn-green'}" onclick="toggleOrientationComplete(${moduleNum},${index})">${done?'✓ Lesson completed — tap to undo':'Mark lesson complete'}</button></div><div class="lesson-nav"><button class="btn btn-sage" onclick="openOrientationModule(${moduleNum})">Module contents</button>${next}</div></article>`;showSection('lesson-detail',false);if(pushHash)history.pushState(null,'',`#orientation/lesson/${moduleNum}/${index}`);
+}
+
+function routeFromHash(){
+ const h=location.hash.replace(/^#/,'');if(!h||h==='home')return showSection('home',false);
+ if(h==='orientation/agreement')return openOrientationAgreement(false);
+ if(h==='orientation/assessment')return openOrientationAssessmentIntro(false);
+ if(h==='assessment/natural-health')return openShortAnswerAssessment('natural-health',false);
+ if(h==='assessment/biblical-faith')return openShortAnswerAssessment('biblical-faith',false);
+ if(h==='biblical-herbalism/assessment')return openBiblicalHerbalismAssessmentIntro(false);
+ if(h==='natural-health/project')return openNaturalHealthProject(false);
+ if(h==='biblical-faith/final-reflection')return openBiblicalFaithReflection(false);
+ if(h.startsWith('biblical-herbalism/lesson/'))return openBiblicalHerbalismLesson(Number(h.split('/')[2]),false);
+ if(h.startsWith('natural-health/lesson/'))return openNaturalHealthLesson(Number(h.split('/')[2]),false);
+ if(h.startsWith('biblical-faith/lesson/'))return openBiblicalFaithLesson(Number(h.split('/')[2]),false);
+ if(h.startsWith('orientation/module/'))return openOrientationModule(Number(h.split('/')[2]),false);
+ if(h.startsWith('orientation/lesson/')){const p=h.split('/');return openOrientationLesson(Number(p[2]),Number(p[3]),false);}
+ if(h.startsWith('course/'))return openCourse(h.split('/')[1],false);
+ if(h.startsWith('lesson/')){const p=h.split('/');return openLesson(p[1],Number(p[2]),false);}
+ if(['courses','herbs','quiz','resources'].includes(h))return showSection(h,false);showSection('home',false);
+}

@@ -1,16 +1,18 @@
-# NHMEC Herbalist Learning App — Version 6
+# NHMEC Herbalist Learning App — Version 8
 
-Version 6 adds the full **Biblical Herbalism Foundations (Module 2.1)** course.
+Version 8 connects the official NHMEC Google Forms to the required agreement and final assessments already built into the app.
 
-## Added
-- 8 real Biblical Herbalism lesson pages
-- Original lesson PDFs inside the app
-- Module 2.1 Biblical Herbalism Guidebook
-- Compressed Module 2 Holistic Christian Herbalist Guidebook as supplemental reference
-- Per-lesson completion tracking
-- Updated service-worker cache (`v6`) and network-first core update behavior
+## Official submission workflow
+- Welcome & Orientation: official Final Orientation Agreement Google Form
+- Welcome & Orientation: official Final Open-Book Orientation Assessment Google Form
+- Natural Health Foundations 101: official final assessment / worksheet-upload Google Form
+- Biblical Faith & Health Foundations: official final assessment / worksheet-upload Google Form
+- Biblical Herbalism Foundations: official 50-question final assessment Google Form
 
-## Update the existing GitHub repository
-Upload every file from the Version 6 Update Files ZIP to the existing `nhmec-herbalist-app` repository and commit the changes. Existing files with matching names will be replaced; the Biblical Herbalism PDF files will be added.
+The in-app versions remain available for study, practice, and local progress. Google Forms are clearly labeled as the official submission method so NHMEC receives the student's work.
 
-The official final assessment questions were not included in the supplied Version 6 course materials, so no assessment questions were invented.
+## Privacy / storage
+Local practice responses and scores remain on the student's device. Official form submissions are handled by Google Forms according to the form's settings.
+
+## Updating GitHub Pages
+Upload the Version 8 update files to the repository root and commit them. The service worker uses a new v8 cache and network-first core-file update behavior.

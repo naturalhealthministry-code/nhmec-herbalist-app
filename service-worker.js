@@ -1,5 +1,5 @@
-const CACHE='nhmec-herbal-v6';
-const CORE=['./','./index.html','./styles.css?v=6','./app.js?v=6','./manifest.json','./icon-192.png','./icon-512.png'];
+const CACHE='nhmec-herbal-v8';
+const CORE=['./','./index.html','./styles.css?v=8','./app.js?v=8','./manifest.json','./icon-192.png','./icon-512.png'];
 const COURSE_ASSETS=[
 './nhmec-student-handbook.pdf','./nhmec-orientation.pdf','./nhmec-welcome-orientation-guide-2026.pdf',
 './module-6-guide-updated.pdf',
