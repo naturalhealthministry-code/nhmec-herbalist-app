@@ -1,45 +1,35 @@
-# NHMEC Herbalist Learning App — Version 17
+# NHMEC Herbalist Learning App — Version 19
 
-Version 17 builds on the working Version 16 app and activates **NHMEC 201 — Kitchen Herbalist** using the supplied Kitchen Herbalism textbook as the source.
+Version 19 builds on the working Version 18 app and adds the **Holistic Human Nutrition Certificate Program** as a separate course without changing the existing Level 1 **Holistic Nutrition Foundations** class.
 
-## Added / updated in Version 17
+## Added in Version 19
 
-- **NHMEC 201 — Kitchen Herbalist** is no longer a Course in Development placeholder.
-- Kitchen Herbalist now contains **8 textbook-based modules**:
-  1. Foundations of Kitchen Herbalism
-  2. Understanding How Herbs Work
-  3. Herbal Preparations
-  4. Kitchen Safety & Herbal Records
-  5. Culinary Herbalism
-  6. Kitchen Materia Medica I — Basil & Cinnamon
-  7. Kitchen Materia Medica II — Garlic, Rosemary & Turmeric
-  8. Building Your Herbal Kitchen
-- Added local progress tracking for all 8 Kitchen Herbalist modules.
-- Added the **My Kitchen Herbalist Portfolio** final project.
-- Added a **25-question open-book final assessment study set**.
-- No official NHMEC 201 final Google Form or portfolio-upload Form was supplied, so Version 17 does not invent one.
-- The uploaded textbook includes a Ginger heading and scattered Ginger references but not a complete Ginger monograph. Ginger is therefore labeled **Supplemental Study** rather than being expanded with invented content.
-- The supplied 102-page Kitchen Herbalism textbook is about 71 MB, so it is split into **6 GitHub-friendly PDF parts**, each under the mobile browser individual-file limit.
+- Added **Holistic Human Nutrition Certificate Program**.
+- No NHMEC course number was supplied on the current PENothecary™ course page, so Version 19 does **not invent one**.
+- **Lesson 1 — Foundations of Holistic Nutrition** is fully built from the supplied NHMEC lesson PDF.
+- **Lesson 2 — Understanding Nutrients: Macronutrients and Micronutrients** is fully built from the supplied NHMEC lesson PDF.
+- **Lesson 3 — Nutrition and the Body Systems** is reserved with the supplied title only.
+- **Lesson 4 — Herbs, Vitamins, Minerals, and Supplements for Whole-Body Wellness** is reserved with the supplied title only.
+- **Lessons 5–6** remain placeholders because their titles/content were not supplied.
+- **Final Assessment** remains a placeholder because an official assessment/form and passing score were not supplied.
+- Added local progress tracking for the two currently built lessons.
+- Added a resource library for the supplied NHMEC nutrition guides and lesson PDFs.
 
-## Important course distinction
+## Public-app copyright handling
 
-**NHMEC 201 — Kitchen Herbalist** and **NHMEC 202 — Kitchen PENothecary™** are separate classes.
+The supplied copy of **Introduction to Human Nutrition, Second Edition** is a commercially published Nutrition Society/Wiley-Blackwell textbook. Version 19 identifies it as a supplemental/reference textbook but **does not redistribute the PDF in the public GitHub repository**.
 
-Version 17 does not merge their videos, documents, assignments, forms, or resources. The existing Kitchen PENothecary™ course remains intact and unchanged.
+## Version 19 resource files
 
-## Existing Version 16 content preserved
+Upload these four supplied NHMEC PDFs to the repository root with these exact names:
 
-- NHMEC 205 — Herbs for the Overwhelmed Woman
-- NHMEC 302 — Veterinary Clinical Anatomy
-- NHMEC 312 — Original Medicine
-- Molybdenum Levels 1–4
-- Family Herbalist
-- Christian Herbalist Foundations
-- Existing foundational courses and A&P resources
-- Existing Course in Development placeholders
+- `holistic-guide-to-human-nutrition.pdf`
+- `holistic-nutrition-class.pdf`
+- `holistic-nutrition-lesson-1.pdf`
+- `holistic-nutrition-lesson-2.pdf`
 
-## GitHub mobile upload
+The course remains readable inside the app even before those optional PDF buttons are used, because the currently built lesson content is included directly in `holistic-nutrition-v19.js`.
 
-For the Version 17 update, upload the core patch files first. Then upload the six Kitchen Herbalist textbook PDF parts individually. Every new Version 17 file is under the individual browser upload limit.
+## Existing content preserved
 
-Do **not** upload the ZIP archives themselves to the repository; extract them first when using a ZIP package.
+Version 18 Kitchen PENothecary™ remains intact and separate from Kitchen Herbalist. Existing foundational, applied, advanced, Molybdenum, Veterinary Anatomy, Original Medicine, Family Herbalist, Christian Herbalist, A&P, and placeholder content remains preserved.

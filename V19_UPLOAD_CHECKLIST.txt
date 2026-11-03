@@ -1,0 +1,27 @@
+NHMEC Herbalist Learning App — Version 19 upload order
+
+The app's core Version 19 text files can be committed directly.
+The four NHMEC PDF resource files need to exist in the GitHub repository root for the Open PDF buttons to work.
+
+Files:
+1. holistic-nutrition-v19.js
+2. index.html
+3. service-worker.js
+4. README.md
+5. holistic-guide-to-human-nutrition.pdf
+6. holistic-nutrition-class.pdf
+7. holistic-nutrition-lesson-1.pdf
+8. holistic-nutrition-lesson-2.pdf
+
+Do NOT upload:
+- Introduction to Human Nutrition 2nd Edition (PDFDrive).pdf
+  It is a commercially published copyrighted reference and is not redistributed in the public app.
+
+After deployment:
+- Home footer should say Version 19.
+- Open Courses.
+- Find Holistic Human Nutrition Certificate Program.
+- Lesson 1 and Lesson 2 should open as full app lessons.
+- Lessons 3–6 should show reserved/in-development status.
+- Final Assessment should show reserved/in-development status.
+- Version 18 Kitchen PENothecary should still open normally.
