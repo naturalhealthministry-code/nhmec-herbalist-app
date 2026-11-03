@@ -330,6 +330,8 @@
         <span class="badge">Supplemental Reference</span>
         <h3>Introduction to Human Nutrition, Second Edition</h3>
         <p>The supplied course-page screenshot lists this Nutrition Society/Wiley-Blackwell textbook in the resource library. Because it is a commercially published copyrighted work, the public GitHub app does not redistribute the uploaded PDF. Students should use a lawfully obtained copy.</p>
+        <a class="btn btn-green" href="https://drive.google.com/file/d/1Y7TLRP8IYVMdXiBDzQhP8ETPkd4OWlsI/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">Open Supplemental Textbook ↗</a>
+        <p class="media-note">Opens the external Google Drive textbook link supplied for this course. Access depends on the file's sharing permissions.</p>
       </div>
 
       <div class="section-head"><div><h2>Course Lessons</h2><p>Only source-supported lesson content is activated.</p></div></div>
