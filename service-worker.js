@@ -1,5 +1,5 @@
-const CACHE='nhmec-herbal-v15';
-const CORE=['./','./index.html','./styles.css?v=15','./app.js?v=15','./manifest.json','./icon-192.png','./icon-512.png'];
+const CACHE='nhmec-herbal-v16';
+const CORE=['./','./index.html','./styles.css?v=16','./app.js?v=16','./manifest.json','./icon-192.png','./icon-512.png'];
 const COURSE_ASSETS=[
 './nhmec-student-handbook.pdf','./nhmec-orientation.pdf','./nhmec-welcome-orientation-guide-2026.pdf',
 './module-6-guide-updated.pdf',
@@ -15,6 +15,7 @@ const COURSE_ASSETS=[
 './ap110-m2-2.1-activity.png','./ap110-m2-2.1-worksheet.png','./ap110-m2-2.2-directional-worksheet.png','./ap110-m2-2.2-directional-practice.png','./ap110-m2-directional-reference.png','./ap110-m2-2.3-planes.png','./ap110-m2-2.4-cavities.png','./ap110-m2-2.5-abdominal-regions.png','./ap110-m2-2.6-medical-word-building.png',
 './ap110-m3-3.1-worksheet.png','./ap110-m3-3.2-worksheet.png','./ap110-m3-3.3-worksheet.png','./ap110-m3-3.4-worksheet.png','./ap110-m3-3.5-worksheet.png',
 './family-herbalist-guidebook.pdf','./christian-herbalist-companion-guide.pdf','./christian-herbalist-expanded-textbook.pdf','./christian-herbalist-module-2-2-kjv-app-edition.pdf','./christian-herbalist-module-2-3-kjv-app-edition.pdf','./christian-herbalist-module-2-4-kjv-app-edition.pdf',
+'./molybdenum-level-4-wellness-assessment.pdf','./vet-anatomy-portfolio-guide.pdf','./original-medicine-course-cover.png',
 './molybdenum-sulfites-nervous-system-levels-1-3.pdf','./moly-l3-worksheet-1-intake.png','./moly-l3-worksheet-2-nls-correlation.png','./moly-l3-worksheet-3-sulfite-tracking.png','./moly-l3-worksheet-4-red-flags.png','./moly-l3-worksheet-6-pen-followup.png','./moly-resource-gentle-calm-rollerball.png','./moly-resource-aroma-sticker.png','./moly-resource-melatonin-sleep-note.png'
 ];
 self.addEventListener('install',event=>{self.skipWaiting();event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll([...CORE,...COURSE_ASSETS])));});

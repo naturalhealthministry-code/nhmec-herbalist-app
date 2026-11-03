@@ -87,6 +87,6 @@ h1{font-size:1.8rem;line-height:1.08;margin:.25rem 0 .45rem}.hero p{margin:0;col
 .external-resource h3,.video-resource h3{margin:0 0 4px}.external-resource p,.video-resource p{margin:0;font-size:.86rem;word-break:break-word}
 .resource-icon{flex:0 0 42px;width:42px;height:42px;border-radius:13px;background:var(--sage);display:grid;place-items:center;font-size:1.15rem}
 .video-resource .arrow{margin-left:auto}
-.course-video{display:block;width:min(100%,420px);height:auto;max-height:320px;object-fit:contain;background:#111;border-radius:16px;margin:10px auto 0}@media(max-width:619px){.course-video{width:min(100%,340px);max-height:280px}}
+.course-video{display:block;width:100%;max-height:70vh;background:#111;border-radius:16px;margin-top:8px}
 .media-feature{overflow:hidden}.media-note{font-size:.82rem;color:var(--muted);margin:10px 0 0}
 @media(min-width:620px){.resource-grid{grid-template-columns:1fr 1fr}}
