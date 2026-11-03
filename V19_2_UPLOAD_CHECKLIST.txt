@@ -1,0 +1,24 @@
+NHMEC HERBALIST LEARNING APP — VERSION 19.2
+GITHUB UPLOAD CHECKLIST
+
+Upload to the ROOT of the existing GitHub repository.
+
+[ ] 1. app.js              REPLACE existing file
+[ ] 2. index.html          REPLACE existing file
+[ ] 3. service-worker.js   REPLACE existing file
+
+DO NOT re-upload for this patch:
+- kitchen-penothecary-v18.js
+- holistic-nutrition-v19.js
+- styles.css
+- manifest.json
+- existing PDFs, worksheets, or videos
+
+After committing:
+[ ] Open the live app and confirm the footer says Version 19.2.
+[ ] Open Specialist Level and confirm Nervous System Herbalist Specialist appears as Course in Development.
+[ ] Open Molybdenum and confirm Level 4 says Practitioner Application / Neurodevelopmental, Sensory & Regulation Wellness Assessment.
+[ ] Confirm Kitchen PENothecary™ still opens normally.
+[ ] Confirm Holistic Human Nutrition still opens and retains the supplemental textbook link from Version 19.1.
+
+If the old version still appears, fully close/reopen the app/browser or refresh so the new service-worker cache loads.
