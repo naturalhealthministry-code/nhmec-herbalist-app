@@ -1,11 +1,11 @@
-/* NHMEC Herbalist Learning App • v20
-   Safe upgrade from v19.2. New PDFs cached when first opened (not mandatory to install).
+/* NHMEC Herbalist Learning App • v21
+   Safe incremental upgrade from v20. New PDFs cached when first opened (not mandatory to install).
    Does not precache MP4s or instructor-only materials.
 */
-const CACHE = 'nhmec-herbal-v20';
+const CACHE = 'nhmec-herbal-v21';
 const CORE = [
   './', './index.html','./styles.css?v=18','./app.js?v=20',
-  './kitchen-penothecary-v18.js?v=18','./holistic-nutrition-v19.js?v=19.1',
+  './kitchen-penothecary-v18.js?v=18','./holistic-nutrition-v21.js?v=21',
   './community-herbalist-v20.js?v=20','./wellness-herbalist-v20.js?v=20',
   './manifest.json','./icon-192.png','./icon-512.png'
 ];
@@ -21,7 +21,7 @@ self.addEventListener('fetch',event=>{
   if(req.method!=='GET'||!req.url.startsWith(self.location.origin))return;
   if(/\.mp4(\?|$)/i.test(req.url)){event.respondWith(fetch(req));return;}
   const navigates=req.mode==='navigate';
-  const isCore=/\/(index\.html|app\.js|community-herbalist-v20\.js|wellness-herbalist-v20\.js|kitchen-penothecary-v18\.js|holistic-nutrition-v19\.js|styles\.css|manifest\.json)(\?|$)/.test(req.url);
+  const isCore=/\/(index\.html|app\.js|community-herbalist-v20\.js|wellness-herbalist-v20\.js|kitchen-penothecary-v18\.js|holistic-nutrition-v21\.js|styles\.css|manifest\.json)(\?|$)/.test(req.url);
   if(navigates||isCore){
     event.respondWith(fetch(req).then(resp=>{
       if(resp.ok){const clone=resp.clone();caches.open(CACHE).then(cache=>cache.put(req,clone)).catch(()=>{});}
