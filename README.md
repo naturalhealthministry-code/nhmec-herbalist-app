@@ -1,31 +1,19 @@
-# NHMEC Herbalist Learning App — Version 14
+# NHMEC Herbalist Learning App — Version 15
 
-Version 14 builds on the working Version 13 app while updating only the course areas supported by the current PENothecary™ site screenshots and the materials supplied for this build.
+Version 15 builds on the working Version 14 app and adds the newly supplied NHMEC 203 and NHMEC 204 materials without inventing unfinished lesson structures.
 
-## Added / updated in Version 14
+## Added / updated in Version 15
 
-- NHMEC 201 — Kitchen Herbalist is now explicitly marked **Course Under Construction**. No unfinished lesson sequence, assessment, pricing, or certification details were invented.
-- NHMEC 202 — Kitchen PENothecary™ now opens a resource hub containing:
-  - the supplied Canva presentation link,
-  - 10 unique supplied course videos (duplicate uploads removed),
-  - 6 supplied Google Docs links,
-  - 5 supplied Google Forms links.
-- Large phone-recorded videos were converted to app-ready MP4 copies so each individual GitHub file remains below the normal 100 MB file limit. The educational content was not rewritten or replaced.
-- The supplied `MOLYBDENUM.mp4` presentation was added to the Molybdenum course.
-- The current site numbering is reflected for Molybdenum: **NHMEC 211** for the course entry and **NHMEC 324** for the Level 3 advanced entry.
-- The current Level 2 course sequence shown on the PENothecary™ page is represented with placeholders for unfinished courses, including NHMEC 203–208 and NHMEC A&P 210.
-- Current advanced entries shown on the site are represented as placeholders where content was not supplied: NHMEC 301, 302, 303, and 312.
-- No number was invented for current-site cards whose number was not visible/supplied.
-- Existing completed Level 1, A&P 110, orientation, nutrition, Biblical Herbalism, and other previously built content is preserved.
+- **NHMEC 203 — Family Herbalist** now opens a current course overview and the supplied Family Herbalist guidebook. The final lesson sequence remains under construction, so no lessons or assessments were invented.
+- **NHMEC 204 — Christian Herbalist Foundations** is now a live course area rather than a placeholder.
+- Christian Herbalist modules are organized exactly as supplied: **2.0 Christian Herbalist, 2.1 Biblical Herbalism, 2.2 Biblical Nutrition & Wellness, 2.3 Biblical Faith & Health Connection, and 2.4 Herbal Studies**.
+- The two supplied Christian Herbalist companion texts are included as course resources.
+- **KJV-only rule:** linked module study PDFs in the app use King James Version Scripture only. Older source guidebooks containing NIV/TLB or modern-translation wording are not linked as student PDFs in Version 15.
+- Obsolete Canvas directions are not used as current app instructions. The PENothecary™ Learning Hub/app remains the current delivery route.
+- Existing Version 14 Kitchen PENothecary™ and Molybdenum video resources are preserved.
 
-## GitHub deployment
+## GitHub mobile update
 
-Use `NHMEC_Herbalist_App_V14_Update_Files.zip` to update the existing GitHub Pages repository. Extract the ZIP first, then upload the files inside to the repository root and replace the older files when prompted.
+You do **not** need to upload the Version 14 videos again if they are already in your repository. For Version 15, upload the files from the **V15 Core Patch** and **V15 New Course Resources** packages to the repository root, replacing the older core files when prompted.
 
-The update package includes the new MP4 files because the Kitchen PENothecary™ and Molybdenum presentations need them. Each individual MP4 has been kept below 100 MB for GitHub compatibility.
-
-The Full ZIP is a complete Version 14 backup and should be kept for safekeeping rather than committed as one large ZIP file.
-
-
-## GitHub Mobile Upload Fix
-This package is prepared for uploading through GitHub.com in a mobile/web browser. Every individual file is under GitHub's 25 MiB browser-upload limit. The two longest presentation videos are split into shorter parts to preserve quality while remaining browser-uploadable.
+Every newly added Version 15 file is under GitHub's 25 MiB browser-upload limit.
