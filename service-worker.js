@@ -1,5 +1,5 @@
-const CACHE='nhmec-herbal-v17';
-const CORE=['./','./index.html','./styles.css?v=17','./app.js?v=17','./manifest.json','./icon-192.png','./icon-512.png'];
+const CACHE='nhmec-herbal-v18';
+const CORE=['./','./index.html','./styles.css?v=18','./app.js?v=17','./kitchen-penothecary-v18.js?v=18','./manifest.json','./icon-192.png','./icon-512.png'];
 const COURSE_ASSETS=[
 './nhmec-student-handbook.pdf','./nhmec-orientation.pdf','./nhmec-welcome-orientation-guide-2026.pdf',
 './module-6-guide-updated.pdf',
@@ -22,9 +22,8 @@ self.addEventListener('install',event=>{self.skipWaiting();event.waitUntil(cache
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
 self.addEventListener('fetch',event=>{
  const req=event.request;if(req.method!=='GET')return;
- // Stream MP4 media from the network rather than storing large videos in the service-worker cache.
  if(/\.mp4(\?|$)/i.test(req.url)){event.respondWith(fetch(req));return;}
- if(req.mode==='navigate'||/\/(index\.html|app\.js|styles\.css|manifest\.json)(\?|$)/.test(req.url)){
+ if(req.mode==='navigate'||/\/(index\.html|app\.js|kitchen-penothecary-v18\.js|styles\.css|manifest\.json)(\?|$)/.test(req.url)){
   event.respondWith(fetch(req).then(resp=>{const copy=resp.clone();caches.open(CACHE).then(cache=>cache.put(req,copy));return resp;}).catch(()=>caches.match(req).then(r=>r||caches.match('./index.html'))));return;
  }
  event.respondWith(caches.match(req).then(cached=>{const network=fetch(req).then(resp=>{if(resp&&resp.ok){const copy=resp.clone();caches.open(CACHE).then(cache=>cache.put(req,copy));}return resp;}).catch(()=>cached);return cached||network;}));
