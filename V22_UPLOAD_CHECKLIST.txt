@@ -1,0 +1,49 @@
+# NHMEC Herbalist Learning App — Version 22
+
+This is an incremental update to the working Version 21 app. DO NOT delete any existing file from your GitHub repository.
+
+WHAT IS NEW
+- Canine Herbalist Coach Training Program • 8 modules, no invented NHMEC course number
+- Course Guide and Workbook open at the original NHMEC Google Drive links
+- Resource Library + Studyopedia
+- Module 5 required upload photos/assignments link
+- Student-friendly paper final PDF containing questions ONLY; answer key pages 13–14 are not distributed
+- Official online final Google Form, completed-work upload, Scope of Practice and Pledge of Standards forms
+- Two supplied illustrated canine protocol posters, clearly labeled as REVIEW REQUIRED, not treatment instructions
+- Private local progress marker for all eight modules
+- Existing V21 Holistic Human Nutrition, V20 diplomas, Kitchen PENothecary and Molybdenum remain untouched
+
+STEP 1 — UPLOAD RESOURCE FILES
+Extract NHMEC_Herbalist_App_V22_Canine_Resources.zip. Upload these three files individually to the ROOT of the current GitHub repository:
+  canine-herbalist-paper-final-student.pdf
+  canine-digestive-upset-poster.jpg
+  canine-allergy-itching-poster.jpg
+
+STEP 2 — UPLOAD CORE FILES LAST
+Extract NHMEC_Herbalist_App_V22_Core_Update.zip and upload all three files to the ROOT, replacing only the two files that already exist:
+  index.html               REPLACE
+  service-worker.js        REPLACE
+  canine-herbalist-v22.js  ADD NEW
+
+IMPORTANT
+- Do not upload ZIP files directly: GitHub Pages does not run the app from ZIP archives.
+- DO NOT replace app.js, styles.css, manifest.json, any existing V18/V20/V21 course scripts, or any older video/PDF resource files.
+- The app requires the files from your already working Version 21 repository.
+- Close/reopen the app or refresh after publishing, to load the new V22 service-worker cache.
+- The V22 Preview HTML is a navigation demo; its existing pre-V22 courses may link to PDFs that are in your GitHub repository, not embedded in this standalone file.
+- Third-party copyrighted textbooks and private animal/client reports were NOT republished in this update.
+- The user-supplied Google Drive paper final URL was NOT added to the public student app because access/content could not be verified; the safe student paper edition is bundled instead.
+- Keep instructor answer keys private; never upload the original 14-page CANINEHERBALISTFINAL-INSTR.pdf to a public GitHub repository.
+- The source photos are classroom discussion material; check animal safety with a licensed veterinarian before any use.
+- Course content and records are educational; nothing here authorizes veterinary diagnosis, treatment or prescribing.
+
+SOURCE LINKS PLACED
+Course Guide: https://drive.google.com/file/d/1nvswzs6ORWMhTsiVzleC854hKMCvgeVa/view
+Workbook: https://drive.google.com/file/d/1Xovb1u3rK6fns8HyDD2MVRX1aI0N8oUp/view
+Resource Library: https://drive.google.com/drive/u/2/folders/1IXeBjaZFMCCAw2t0kc2Ztt5lCsuDSZFn?usp=drive_link
+Studyopedia: https://sites.google.com/view/penothecary/diploma-programs/learning-library/studyopedia?authuser=0
+Module 5 upload: https://docs.google.com/forms/d/e/1FAIpQLSerF9y0Y25aNtVim8FJ6ZwTxm18quLa-63iIZVNlpKcyyGxwg/viewform
+Online Final: https://docs.google.com/forms/d/e/1FAIpQLSfhcTqTon7kbPV1kqTi5rhy4VEljvTxq8CM0tuv5bhtsYAiGw/viewform
+All Work: https://docs.google.com/forms/d/e/1FAIpQLSctX1CTHsXZ6P7AGr-rVkwF4PCjgPO6nruswoi1sTgMu-Cj_Q/viewform
+Scope: https://docs.google.com/forms/d/e/1FAIpQLSfhPJNvTqCqydzCa5nSWloTrbqA7sg8bO2QrKqr4dBJHs1T_w/viewform?usp=send_form
+Pledge: https://docs.google.com/forms/d/e/1FAIpQLSeE76TQdoJzL8Mmr9bcAOZqP9BQZqS6xcGs5dqvQeXtqsQQ0g/viewform
