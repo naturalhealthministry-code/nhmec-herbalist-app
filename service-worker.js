@@ -1,12 +1,12 @@
-/* NHMEC Herbalist Learning App • v22
+/* NHMEC Herbalist Learning App • v22.1
    Safe incremental upgrade from v21. New PDFs cached when first opened (not mandatory to install).
    Does not precache MP4s or instructor-only materials.
 */
-const CACHE = 'nhmec-herbal-v22';
+const CACHE = 'nhmec-herbal-v22-1';
 const CORE = [
   './', './index.html','./styles.css?v=18','./app.js?v=20',
   './kitchen-penothecary-v18.js?v=18','./holistic-nutrition-v21.js?v=21',
-  './community-herbalist-v20.js?v=20','./wellness-herbalist-v20.js?v=20',
+  './community-herbalist-v20.js?v=22.1','./wellness-herbalist-v20.js?v=20',
   './canine-herbalist-v22.js?v=22',
   './manifest.json','./icon-192.png','./icon-512.png'
 ];

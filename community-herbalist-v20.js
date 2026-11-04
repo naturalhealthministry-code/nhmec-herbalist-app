@@ -154,6 +154,13 @@
         <a class="btn btn-green" href="community-herbalist-eguide.pdf" target="_blank" rel="noopener noreferrer">Open Community Herbalist eGuide ↗</a>
       </div>
 
+      <div class="card ch-course-video">
+        <span class="badge">Course Video • Google Drive</span>
+        <h3>Community Herbalist Course Video</h3>
+        <p>Supplemental video resource for the Community Herbalist Diploma. Open the video in Google Drive.</p>
+        <a class="btn btn-green" href="https://drive.google.com/file/d/1TH3kkGvw4QoFLEkHlYzONzDtUG535ffz/view?usp=drive_link" target="_blank" rel="noopener noreferrer" aria-label="Open Community Herbalist Course Video in Google Drive">▶ Watch Course Video ↗</a>
+      </div>
+
       <div class="card">
         <h3>Program Outcomes</h3>
         ${chList(OUTCOMES)}
